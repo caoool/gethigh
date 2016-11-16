@@ -42,11 +42,11 @@ NodeJS is currently the most popular environment for web programming. I can just
 * NPM (package manager) has the greatest number of packages over its compartments
 * Meteor is UNIQUE (you must have faith on this one)
 
-Here we will write Javascript in Coffeescript bacause
+Here we will write Javascript in CoffeeScript bacause
 * Eliminates all the ';' and '{}'
 * Lots of syntax sugers
 * Advance features that plain JS does not support like class...
-* [jss:coffeescript-property](https://atmospherejs.com/jss/coffeescript-property) recommended for better OO experience
+* [jss:CoffeeScript-property](https://atmospherejs.com/jss/CoffeeScript-property) recommended for better OO experience
 
 Other characteristics can be googled by yourself.
 
@@ -86,7 +86,7 @@ Some Meteor advantages:
 
 * [Todo list tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
   * Please go over the tutorial at first to have a general picture of how meteor executes
-  * Make sure to read [the coffeescript version](https://github.com/meteor/todos/tree/coffeescript) after finish the tutorial because we will be using coffeescript in this project
+  * Make sure to read [the CoffeeScript version](https://github.com/meteor/todos/tree/CoffeeScript) after finish the tutorial because we will be using CoffeeScript in this project
 * [Meteor guide](https://guide.meteor.com/)
   * Recommended for both frontend and backend developers
   * Backend developers need to focus on all sections except VIEW
@@ -115,13 +115,13 @@ Other useful learning resources:
 
 #### Suggestions
 
-Webstorm (subset of IntelliJ IDE) has full support of MeteorJS, but code intelligent and auto completion does not work for Coffeescript, it's the same issue on all other IDE and text editors (Sublime/Atom...).
+Webstorm (subset of IntelliJ IDE) has full support of MeteorJS, but code intelligent and auto completion does not work for CoffeeScript, it's the same issue on all other IDE and text editors (Sublime/Atom...).
 
 An IDE doesn't really help much in this situation, so I would recommend using atom or sublime or whatever editor you prefer to code.
 
 [Meteor toys](http://meteor.toys/) could be something useful when you develop, it gives you visual feedback on data or other stuff (like showing dataset on frontend...), details can be found on its website. Do not purchase because you can find free version of the core features in AtmosphereJS.
 
-## MongoDB
+### MongoDB
 
 MongoDB is a NoSQL database, that means data is not stored in tables, and there is obviously no relations found in between tables. MongoDB stores data as an object, like in a JSON format, so attributes of an object can even be an array, boolean, string, number or even another object.
 
@@ -134,19 +134,19 @@ Remember that in Meteor, since publication can control what data is available to
 
 [Robomongo](https://robomongo.org/) is a free cross platform MongoDB visualization tool (also editing). So instead of remember all the usage of MongoDB, just simple using this tool to deal with MongoDB (locally and remotely).
 
-## Frontend
+### Frontend
 
-### Rounting
+#### Rounting
 
 [iron:router](https://github.com/iron-meteor/iron-router/) is used for routing. This Github page has a guide and quick start guide.
 
 Please put the "router.coffee" file inside client folder to have best performance.
 
-### [Coffeescript](http://coffeescript.org/)
+#### [CoffeeScript](http://CoffeeScript.org/)
 
-Please keep in mind that we will not be using Meteor 1.4 feature of "import" folder, so no explicit import is needed. Every function, class or variable is global if you write @ in front of an variable or class. (`@` = `this.` in Coffeescript)
+Please keep in mind that we will not be using Meteor 1.4 feature of "import" folder, so no explicit import is needed. Every function, class or variable is global if you write @ in front of an variable or class. (`@` = `this.` in CoffeeScript)
 
-### [Jade](https://pugjs.org/api/getting-started.html)
+#### [Jade](https://pugjs.org/api/getting-started.html)
 
 It is been forced to rename to pug due to a trademark issue, so don't freak out if you see pug instead.
 
@@ -154,10 +154,178 @@ Blaze template engine uses Handlebar to wrap variables, objects and reactive dat
 
 One useful [tutorial for beginners](https://www.sitepoint.com/jade-tutorial-for-beginners/)
 
-### [Stylus](http://stylus-lang.com/)
+#### [Stylus](http://stylus-lang.com/)
 
-### [Bootstrap](http://getbootstrap.com/)
+#### [Bootstrap](http://getbootstrap.com/)
 
 Please make sure using its grid system, and the pages need to be **mobile friendly**.
 
-### [Fontawesome](http://fontawesome.io/)
+#### [Fontawesome](http://fontawesome.io/)
+
+## Conventions (Style Guide)
+
+Below are some conventions and styles that I grabbed along the way on my programming life. Some are suggestions, while some others need to be strictly followed to ensure an unique peaceful and fluent experience for everyone.
+
+### Git
+
+#### Model and Branching
+
+Please find the model [here](http://nvie.com/posts/a-successful-git-branching-model/).
+
+<img src="http://nvie.com/img/git-model@2x.png" height="720">
+
+Just a few words related to the above link. Some clear instructions on the command lines are been made by this article. Some are not available through a GitHub client. Please follow closely of the branching strategy described, and one should **never commit directly to the master branch**. Also, please remember to **delete** your feature branch after been merged to develop branch.
+
+#### Naming
+
+Type | Style | Comments
+--- | --- | --- | ---
+branch | my-feature-branch |
+commit | Add a class | Please keep in mind that no past tense (No Added)
+| Update b module |
+| Remove c collection |
+commit message | Added <br> -> a feature <br> -> b file | Past tense is used here <br> Seperate each item with new line starting ->
+| Updated / removed <br> -> whatever | In case more than one task is done in the commit
+| Add / Update / Remove ... <br> -> ... | Without past tense indicate your future plan after this commit
+
+#### Commit
+
+Feel free to commit any time you want except on the master branch. Or you can always send a pull request to develop branch just to be safe.
+
+### Meteor
+
+I apologize at first for making such complex and stupid styles and forcing everyone to follow. Since Meteor is very flexible and freestyle, we must establish some rule we will not struggle later on once the project grows big.
+
+#### Hierarchy / Structure
+
+>/gethigh
+
+>>/models
+
+>>>/lists
+>>>>list.coffee  
+>>>>lists.coffee  
+>>>>methods.coffee
+
+>>>>/server
+>>>>>methods.coffee  
+>>>>>publications.coffee  
+
+>>>/tags
+>>>>tag.coffee  
+>>>>tags.coffee
+
+>>>>/server
+>>>>>methods.coffee  
+>>>>>publications.coffee
+
+>>/views
+>>>index.jade  
+>>>index.styl  
+>>>index.coffee
+
+>>>/layouts
+>>>>default-layout.jade  
+>>>>not-found-layout.jade
+
+>>>/user
+>>>>profile.jade  
+>>>>profile.coffee  
+>>>>profile.styl
+
+>>>/list
+>>>>list.jade  
+>>>>list.coffee  
+>>>>all-list.jade  
+>>>>all-list.coffee
+
+>>/server
+>>>startup.coffee  
+>>>login-service-config.coffee
+
+>>/client
+>>>router.coffee
+
+>>/lib
+>>>/helpers
+>>>/localizations
+
+>>/common
+
+>>/public
+>>>icon.png
+
+>>/private
+>>>facebook-credential.yml  
+>>>google-credential.yml  
+>>>twillio.yml
+
+This is **Extremely Important**, so please take a very close look at this structure above.
+
+> */gethigh/models/lists*
+>> Please make sure that folders like list**s** represents a model must be in its **plural form**.
+
+> */gethigh/models/lists/list.coffee*
+>> Notice here is list (not lists), this is used to name classes
+
+> */gethigh/models/lists/lists.coffee*
+>> Notice here is lists (not list), plural form is used here to indicate this is a Meteor/MongoDB collection
+
+> */gethigh/server/login-service-config.coffee*
+>> If name is more than one work, we use **-** in between every word, all lower case
+
+> */gethigh/models/lists/methods.coffee* | */gethigh/models/lists/server/publications.coffee*
+>> method**s** and publication**s** file named need to be in **plural form**
+
+Some explaination on **special folder names**
+
+* **server** - anything inside server folder will run on server side only
+* **client** - anything inisde client folder will run on client side only
+* Anything that not in the above two runs on both sides
+* The above two folder can exist anywhere multiple times in the project, even nested
+* **public** - store public assets like icons, images
+* **private** - store private credentials like google OAuth Tokens, Keys, IDs used by server to connect to 3rd party
+
+#### Tempate Naming
+
+Some view and controllers might have a file name like ***all-lists.jade***, ***all-lists.coffee***.
+
+For ***all-lists.jade*** make sure the associate template in that file is named all**\_**lists by replacing **-** with **\_** like  because then if you double click with mouse of ctrl left right, the long multi word name will be treated as a whole. So the template name definition in Jade will be like `template(name='all_lists')`, and in ***all-lists.coffee***, you call `Tempalte.all_lists.oncreated`.
+
+### Coding
+
+#### Empty Lines
+Please make sure between every function, class, blocks, divs -> **2** blank lines.  
+Between every ideally group -> **1** blank line.
+
+More styles can be visualized in sample project [yiyaabc](https://github.com/caoool/yiyaabc), notice most recent work is under *classes branch*.
+
+#### Comments
+I am aware there are comment generating libraries out there, but so far I haven't found one flawlessly working with CoffeeScript, so in the meantime please follow this commenting style.
+
+~~~CoffeeScript
+# !!!
+#   IMPORTANT WARNINGS COMES HERE IN CAPTICAL LETTERS
+# DESC
+#   Briefly describe what it does
+# PARAMS
+#   {Object} list
+#     {[String]} Array of items, String
+#     {String} created by user id
+#     {Number} number of followers
+#     {Date} date created
+# RETURN
+#   {Boolean}
+# FIXME
+#   Somehow I don't want to speak now
+# TODO
+#   Need to add flying feature later
+~~~
+
+#### Indentation
+
+Please use hard tab (real tab character instead of spaces), and **1 tab** (2 spaces in equal but since we use hard tab here it is just one tab character).
+
+#### Resources
+
+Some CoffeeScript coding styles guides can be found [here](https://github.com/polarmobile/CoffeeScript-style-guide).
