@@ -18,5 +18,34 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.5.9              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-autopublish@1.0.7             # Publish all data to the clients (for prototyping)
-insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
+#####################################
+# Below are packages added manually #
+#####################################
+
+# Server functions
+4commerce:env-settings
+jaredmartin:future
+
+# MongoDB collection schema controls
+aldeed:simple-schema
+aldeed:collection2
+dburles:collection-helpers
+
+# Accounts
+alanning:roles
+accounts-base
+accounts-ui
+accounts-password
+accounts-google
+accounts-facebook
+service-configuration
+bozhao:link-accounts
+
+# Frontend
+iron:router
+fortawesome:fontawesome
+twbs:bootstrap
+coffeescript
+mquandalle:jade
+stylus
+udondan:yml
