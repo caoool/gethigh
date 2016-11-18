@@ -5,20 +5,18 @@
 #
 Meteor.startup ->
 
-		console.log Meteor.settings
+  # Configure Google Oauth services
+	Accounts.loginServiceConfiguration.remove service: 'google'
+	Accounts.loginServiceConfiguration.insert
+		service: 'google'
+		clientId: Meteor.settings.google.id
+		secret: Meteor.settings.google.secret
+		loginStyle: 'redirect'
 
-  # # Configure Google Oauth services
-	# Accounts.loginServiceConfiguration.remove service: 'google'
-	# Accounts.loginServiceConfiguration.insert
-	# 	service: 'google'
-	# 	clientId: Meteor.settings.google.id
-	# 	secret: Meteor.settings.google.secret
-	# 	loginStyle: 'redirect'
-	#
-  # # Configure Facebook Oauth services
-	# Accounts.loginServiceConfiguration.remove service: 'facebook'
-	# Accounts.loginServiceConfiguration.insert
-	# 	service: 'facebook'
-	# 	appId: Meteor.settings.facebook.id
-	# 	secret: Meteor.settings.facebook.secret
-	# 	loginStyle: 'redirect'
+  # Configure Facebook Oauth services
+	Accounts.loginServiceConfiguration.remove service: 'facebook'
+	Accounts.loginServiceConfiguration.insert
+		service: 'facebook'
+		appId: Meteor.settings.facebook.id
+		secret: Meteor.settings.facebook.secret
+		loginStyle: 'redirect'
