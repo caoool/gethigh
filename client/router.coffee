@@ -7,8 +7,8 @@ Router.configure
   layoutTemplate: 'application_layout'
 
 
-Router.route '/', ->
-  @redirect '/test-page'
+Router.route '/',
+  template: 'application'
 
 
 Router.route '/test-page',
