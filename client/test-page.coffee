@@ -4,6 +4,14 @@
 # Once working properly, code can be re write in actual work
 
 
+Template.test_page.onCreated ->
+
+  # We subscribe to our 'userData' publication, so we will
+  # have access to the some additional fields of user collection
+  # Publication is defined in users/server/publications.coffee
+  @subscribe 'userData'
+
+
 Template.test_page.events
 
   'click #login_with_google': (e) ->
@@ -20,6 +28,26 @@ Template.test_page.events
     e.preventDefault()
 
     Meteor.loginWithFacebook (error, result) ->
+      if error
+        console.log error
+      else
+        console.log result
+
+
+  'click #link_with_google': (e) ->
+    e.preventDefault()
+
+    Meteor.linkWithGoogle (error, result) ->
+      if error
+        console.log error
+      else
+        console.log result
+
+
+  'click #link_with_facebook': (e) ->
+    e.preventDefault()
+
+    Meteor.linkWithFacebook (error, result) ->
       if error
         console.log error
       else
