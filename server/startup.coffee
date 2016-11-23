@@ -9,12 +9,12 @@ Meteor.startup ->
 	Accounts.loginServiceConfiguration.remove service: 'google'
 	Accounts.loginServiceConfiguration.insert
 		service: 'google'
-		# Due to some fucking issues with windows fucking not loading yml
+		# ISSUE: Due to some fucking issues with windows fucking not loading yml
 		# clientId: Meteor.settings.google.id
 		# secret: Meteor.settings.google.secret
 		clientId: '118672134283-dtdgog5a78riit2njtc5jqfqth6lq71r.apps.googleusercontent.com'
 		secret: 'tQELJLERjHBG-qK3mLq2vmxD'
-		# Somehow link-accounts package will create new account with redirect style
+		# ISSUE: Somehow link-accounts package will create new account with redirect style
 		# loginStyle: 'redirect'
 		loginStyle: 'popup'
 
