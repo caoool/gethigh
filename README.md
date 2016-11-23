@@ -134,6 +134,18 @@ Remember that in Meteor, since publication can control what data is available to
 
 [Robomongo](https://robomongo.org/) is a free cross platform MongoDB visualization tool (also editing). So instead of remember all the usage of MongoDB, just simple using this tool to deal with MongoDB (locally and remotely).
 
+#### Access Database
+
+##### Development
+
+To access MongoDB using Meteor CLI `meteor mongo` within your project folder.  
+To access MongoDB using Robomongo, the address is **localhost** and the port is **3001**.
+
+##### Deployment
+
+To access MongoDB deployed using mupx inside a docker in a server, use `docker exec -it mongodb mongo CONTAINER`, replace `CONTAINER` here with our application name.  
+To access MongoDB deployed using Robomongo, I have never tried myself. Educate me if you find a way.
+
 ### Frontend
 
 #### Rounting

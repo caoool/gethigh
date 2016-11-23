@@ -1,0 +1,11 @@
+##########################
+# Account Oauth Services #
+##########################
+
+google:
+  id: '118672134283-dtdgog5a78riit2njtc5jqfqth6lq71r.apps.googleusercontent.com'
+  secret: 'tQELJLERjHBG-qK3mLq2vmxD'
+
+facebook:
+  id: '135485893564483'
+  secret: '3f7c76f01bd8a53dc30e5ae4a54a1145'

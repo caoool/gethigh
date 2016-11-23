@@ -1,0 +1,33 @@
+//- 
+  test-page.jade
+  This page is used for function tests on modules
+  You can write you code here and test manualy with its associated
+  controller (test-page.coffee)
+  
+  
+template(name='test_page')
+  h1 I am test-page!
+
+  //-
+    Display login buttons if no current user
+    Display user name and logout button is someone logged in
+    currentUser is an object that Meteor provide to frontend
+    -
+  if currentUser
+  
+    p Logged in user: #{currentUser.profile.name}
+    
+    // 'unless' in blaze handlebar means if not
+    unless currentUser.services.google.name
+      button#link_with_google Link With Google
+    unless currentUser.services.facebook.name
+      button#link_with_facebook Link With Facebook
+    
+    button#logout Logout
+    br
+    
+  else
+  
+    button#login_with_google Login with Google
+    button#login_with_facebook Login with Facebook
+  
