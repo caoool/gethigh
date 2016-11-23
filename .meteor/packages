@@ -43,6 +43,7 @@ bozhao:link-accounts
 
 # Frontend
 iron:router
+raix:handlebar-helpers
 fortawesome:fontawesome
 twbs:bootstrap
 coffeescript

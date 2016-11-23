@@ -1,0 +1,1 @@
+# client/components/item.coffee

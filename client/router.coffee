@@ -8,7 +8,7 @@ Router.configure
 
 
 Router.route '/',
-  template: 'application'
+  template: 'main'
 
 
 Router.route '/test-page',
