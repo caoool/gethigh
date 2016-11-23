@@ -1,0 +1,22 @@
+//-
+  client/pages/main.jade
+  This is the main page displaying todo lists as well as providing
+  searching, tagging, as other main functionalities
+  Lists and items will be seperate components defined inside ../components/...
+  -
+
+
+template(name='main')
+
+  +searchbar
+
+  h2 types
+  +types
+  
+  h2 trending tags
+  +tags
+  
+  // Right now I will only put some fake data loops here for placeholder
+  each factory
+    .col-xs-12.col-sm-6.col-md-4
+      +list
