@@ -1,4 +1,4 @@
-# router.coffee
+# routes.coffee
 # Client side (frontend) routing happens here using iron router (atmosphere package)
 # This is the only file for routing
 

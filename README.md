@@ -204,6 +204,22 @@ commit message | Added <br> -> a feature <br> -> b file | Past tense is used her
 
 Feel free to commit any time you want except on the master branch. Or you can always send a pull request to develop branch just to be safe.
 
+### MongoDB
+
+Please name collections using all lowercase like `todos`, because MongoDB is case sensitive, this way will eliminates some confusions.
+
+Please be sure to use plural, so `files` will make more sense than just file.
+
+Please name collections and attributes in `underscore` style instead of camelCase style because it will be easier to read with long names.
+
+Example:
+
+* `todo_lists`-> collection name
+* `user_id` -> attribute
+* `list_id` -> attribute
+* `created_at` -> attribute
+* `created_by` -> attribute
+
 ### Meteor
 
 I apologize at first for making such complex and stupid styles and forcing everyone to follow. Since Meteor is very flexible and freestyle, we must establish some rule we will not struggle later on once the project grows big.

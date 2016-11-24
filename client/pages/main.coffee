@@ -1,6 +1,12 @@
 # client/pages/main.coffee
 
 
+Template.main.onCreated ->
+
+  @subscribe 'lists.all'
+
+
 Template.main.helpers
 
-  factory: _.range 10
+  lists: ->
+    Lists.find()

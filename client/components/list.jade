@@ -9,7 +9,7 @@ template(name='list')
   .list
   
     // Right now I will only put some fake data loops here for placeholder
-    h2 I am a todo list
-    each factory
+    h2 #{name}
+    each items
         +item
     p star: 10 follower: 32
