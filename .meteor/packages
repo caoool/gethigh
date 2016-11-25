@@ -22,14 +22,22 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 # Below are packages added manually #
 #####################################
 
+# Lib
+random
+coffeescript
+
 # Server functions
 4commerce:env-settings
 jaredmartin:future
+mdg:validated-method
+reywood:publish-composite
 
 # MongoDB collection schema controls
 aldeed:simple-schema
 aldeed:collection2
 dburles:collection-helpers
+dburles:factory
+digilord:faker
 
 # Accounts
 alanning:roles
@@ -46,7 +54,6 @@ iron:router
 raix:handlebar-helpers
 fortawesome:fontawesome
 twbs:bootstrap
-coffeescript
 mquandalle:jade
 stylus
 udondan:yml

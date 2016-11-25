@@ -59,3 +59,9 @@ Template.test_page.events
 
     Meteor.logout (error) ->
       if error then console.log error
+
+
+  'click #factory': (e) ->
+    e.preventDefault()
+
+    Meteor.call 'factory'

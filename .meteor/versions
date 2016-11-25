@@ -29,6 +29,7 @@ callback-hook@1.0.10
 check@1.2.4
 coffeescript@1.11.1_4
 dburles:collection-helpers@1.1.0
+dburles:factory@1.1.0
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.8
@@ -36,6 +37,7 @@ ddp-rate-limiter@1.0.6
 ddp-server@1.2.10
 deps@1.0.12
 diff-sequence@1.0.7
+digilord:faker@1.0.7
 ecmascript@0.6.1
 ecmascript-runtime@0.3.15
 ejson@1.0.13
@@ -66,6 +68,7 @@ less@2.6.5
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
+mdg:validated-method@1.1.0
 mdg:validation-error@0.2.0
 meteor@1.6.0
 meteor-base@1.0.4
@@ -97,6 +100,7 @@ reactive-dict@1.1.8
 reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
+reywood:publish-composite@1.4.2
 routepolicy@1.0.12
 service-configuration@1.0.11
 session@1.1.7
