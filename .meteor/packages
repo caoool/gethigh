@@ -57,3 +57,5 @@ twbs:bootstrap
 mquandalle:jade
 stylus
 udondan:yml
+session
+u2622:persistent-session

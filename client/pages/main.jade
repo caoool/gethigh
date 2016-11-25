@@ -22,3 +22,6 @@ template(name='main')
     .col-xs-12.col-sm-6.col-md-4
       //- p #{list.name}
       +list
+
+  if loadmore
+    p#loading Loading...
