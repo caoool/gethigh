@@ -2,8 +2,10 @@
 
 
 # DESC
-#   Publish all lists
+#   Publish all lists or with limit
+# PARAMS
+#   {Integer?}  limit (optional)
 #
-Meteor.publish 'lists.all', ->
+Meteor.publish 'lists.all', (limit=0) ->
 
-  Lists.find()
+  Lists.find {}, limit: limit
