@@ -1,1 +1,1 @@
-# client/components/item.coffee
+# client/components/item-edit.coffee

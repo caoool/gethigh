@@ -13,3 +13,20 @@ Router.route '/',
 
 Router.route '/test-page',
   template: 'test_page'
+
+
+Router.route '/list/:_id',
+  template: 'list_edit'
+
+
+#################################
+# Testing Routes for components #
+#################################
+
+
+Router.route '/components/item-edit',
+  template: 'item_edit'
+
+
+Router.route '/components/list-edit',
+  template: 'list_edit'

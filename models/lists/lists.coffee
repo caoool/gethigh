@@ -31,10 +31,11 @@ Lists.schema = new SimpleSchema
 
   name:
     type: String
+    defaultValue: 'New List'
 
   created_by:
     type: String
-    regEx: SimpleSchema.RegEx.Id
+    # regEx: SimpleSchema.RegEx.Id
     autoValue: ->
       if @isInsert
         @userId

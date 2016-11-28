@@ -1,0 +1,23 @@
+//-
+  client/components/list-edit.jade
+  This component is used for editing list
+  item-edit will be include in this component
+  -
+
+
+template(name='list_edit')
+
+  .list_edit
+  
+    with list
+      button#list_edit.delete Delete
+      input#list_edit.name(type='text', value='#{name}')
+      
+      +item_edit
+      +item_edit
+      +item_edit
+      +item_edit
+      
+      button#new_item New Item
+    else
+      p Sorry, the list does not exist.

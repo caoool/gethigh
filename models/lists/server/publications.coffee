@@ -9,3 +9,13 @@
 Meteor.publish 'lists.all', (limit=0) ->
 
   Lists.find {}, limit: limit
+
+
+# DESC
+#   Publish one list with its given id
+#  PARAMS
+#   {String}   _id of the list
+#
+Meteor.publish 'lists.id', (_id) ->
+
+  Lists.find _id
