@@ -45,6 +45,14 @@ Template.main.onRendered ->
   $(window).scroll loadmore
 
 
+Template.main.events
+
+  'click .main #new_list': (e) ->
+    e.preventDefault()
+
+    Meteor.call 'lists.insert', {}
+
+
 Template.main.helpers
 
   lists: ->

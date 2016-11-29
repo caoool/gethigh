@@ -8,8 +8,11 @@ template(name='list')
   
   .list
   
-    // Right now I will only put some fake data loops here for placeholder
-    h2 #{name}
+    input#name(type='text', value='#{name}')
+    button#delete Delete
+    button#new_item Add new Item
+    
+    hr
+    
     each items
-        +item
-    p star: 10 follower: 32
+      +item

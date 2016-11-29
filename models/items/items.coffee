@@ -46,6 +46,7 @@ Items.schema = new SimpleSchema
 
   content:
     type: String
+    optional: yes
 
   checked:
     type: Boolean

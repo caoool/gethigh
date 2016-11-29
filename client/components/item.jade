@@ -8,6 +8,6 @@ template(name='item')
 
   .item
   
-    input(type='checkbox')
-    label #{content}
-    span.text-right 11/33
+    input#check(type='checkbox')
+    input#content(type='text', value='#{content}')
+    button#delete Delete
