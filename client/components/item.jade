@@ -7,7 +7,7 @@
 template(name='item')
 
   .item
-  
-    input#check(type='checkbox')
+
+    input#check(type='checkbox', checked='#{checked}')
     input#content(type='text', value='#{content}')
     button#delete Delete

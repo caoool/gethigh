@@ -11,7 +11,7 @@ Template.list.events
   'focusout .list #name': (e) ->
     e.preventDefault()
 
-    oldName = Lists.findOne().name
+    oldName = Template.instance().data['name']
     newName = e.target.value
     return if oldName == newName
 

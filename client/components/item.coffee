@@ -15,13 +15,14 @@ Template.item.events
   'focusout .item #content': (e) ->
     e.preventDefault()
 
-    oldName = Items.findOne().name
-    newName = e.target.type
-    return if oldName == newName
+    oldValue = Template.instance().data['content']
+    console.log oldValue
+    newValue = e.target.value
+    return if oldValue == newValue
 
     item =
       _id: @_id
-      content: newName
+      content: newValue
     Meteor.call 'items.update', item
 
 
