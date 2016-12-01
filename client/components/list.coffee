@@ -8,6 +8,14 @@ Template.list.onCreated ->
 
 Template.list.events
 
+  'click .list #new_item': (e) ->
+    e.preventDefault()
+
+    item =
+      list_id: @_id
+    Meteor.call 'items.insert', item
+    
+
   'focusout .list #name': (e) ->
     e.preventDefault()
 
@@ -24,15 +32,7 @@ Template.list.events
   'click .list #delete': (e) ->
     e.preventDefault()
 
-    Meteor.call 'lists.remove', @_id
-
-
-  'click .list #new_item': (e) ->
-    e.preventDefault()
-
-    item =
-      list_id: @_id
-    Meteor.call 'items.insert', item
+    Meteor.call 'lists.remove', {@_id}
 
 
 Template.list.helpers

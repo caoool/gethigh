@@ -10,13 +10,24 @@
 #     {String}    list_id
 #     {String?}   content -> optional
 #     {bool?}     checked -> optional
-# TODO
-#   Add validation and user check
+#
 insert = new ValidatedMethod
 
   name: 'items.insert'
-  validate: null
-  run: (item=null) ->
+
+  validate: new SimpleSchema
+    list_id:
+      type: String
+    content:
+      type: String
+      optional: true
+    checked:
+      type: Boolean
+      optional: true
+  .validator()
+
+  run: (item) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to add a new item!' if !@userId
     Items.insert item
 
 
@@ -32,13 +43,28 @@ insert = new ValidatedMethod
 #     {String?} list_id -> move to another list (must be same owner)
 #     {String?} content -> optional
 #     {String?} checked -> optional
-# TODO
-#   Add validation and user check
+#
 update = new ValidatedMethod
 
   name: 'items.update'
-  validate: null
+
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+    list_id:
+      type: String
+      optional: true
+    content:
+      type: String
+      optional: true
+    checked:
+      type: Boolean
+      optional: true
+  .validator()
+
   run: (item) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to update an item!' if !@userId
     Items.update item._id, $set: item
 
 
@@ -48,11 +74,17 @@ update = new ValidatedMethod
 #   Remove an item
 # PARAMS
 #   {String}  _id
-# TODO
-#   Add validation and user check
+#
 remove = new ValidatedMethod
 
   name: 'items.remove'
-  validate: null
-  run: (_id) ->
+
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+  .validator()
+
+  run: ({_id}) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete an item!' if !@userId
     Items.remove _id

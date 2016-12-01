@@ -16,7 +16,6 @@ Template.item.events
     e.preventDefault()
 
     oldValue = Template.instance().data['content']
-    console.log oldValue
     newValue = e.target.value
     return if oldValue == newValue
 
@@ -29,4 +28,4 @@ Template.item.events
   'click .item #delete': (e) ->
     e.preventDefault()
 
-    Meteor.call 'items.remove', @_id
+    Meteor.call 'items.remove', {@_id}

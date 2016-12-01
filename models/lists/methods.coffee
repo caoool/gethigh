@@ -8,13 +8,19 @@
 # PARAMS
 #   {Object?}     list -> optional
 #     {String?}   name -> optional, name of the list
-# TODO
-#   Add validation and user check
+#     
 insert = new ValidatedMethod
 
   name: 'lists.insert'
-  validate: null
+
+  validate: new SimpleSchema
+    name:
+      type: String
+      optional: true
+  .validator()
+
   run: (list=null) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to add a new list!' if !@userId
     Lists.insert list
 
 
@@ -26,13 +32,22 @@ insert = new ValidatedMethod
 #   {Object}    list
 #     {String}  _id -> must provide _id
 #     {String?} name -> optional
-# TODO
-#   Add validation and user check
+#
 update = new ValidatedMethod
 
   name: 'lists.update'
-  validate: null
+
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+    name:
+      type: String
+      optional: true
+  .validator()
+
   run: (list) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to update a list!' if !@userId
     Lists.update list._id, $set: list
 
 
@@ -42,11 +57,17 @@ update = new ValidatedMethod
 #   Remove a list
 # PARAMS
 #   {String}  _id
-# TODO
-#   Add validation and user check
+#
 remove = new ValidatedMethod
 
   name: 'lists.remove'
-  validate: null
-  run: (_id) ->
+
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+  .validator()
+
+  run: ({_id}) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
     Lists.remove _id
