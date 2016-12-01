@@ -77,3 +77,7 @@ Lists.helpers
       list_id: @_id
     , sort:
       createdAt: -1
+
+
+  isOwner: ->
+    @created_by == Meteor.userId()

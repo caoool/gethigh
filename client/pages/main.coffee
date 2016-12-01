@@ -53,6 +53,12 @@ Template.main.events
     Meteor.call 'lists.insert', {}
 
 
+  'click .main .lists .toggle': (e) ->
+    e.preventDefault()
+
+    Session.set SESSION_NAMES.SELECTED_LIST_ID, @_id
+
+
 Template.main.helpers
 
   lists: ->
@@ -60,3 +66,6 @@ Template.main.helpers
 
   loadmore: ->
     !(Lists.find().count() < Session.get SESSION_NAMES.LISTS_LOAD_LIMIT)
+
+  selected_list: ->
+    Lists.findOne Session.get SESSION_NAMES.SELECTED_LIST_ID

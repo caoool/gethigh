@@ -1,0 +1,13 @@
+//-
+  client/components/item.jade
+  Item refers to every todo entry inside a list
+  -
+
+
+template(name='item')
+
+  .item
+
+    input#check(type='checkbox', checked='#{checked}', disabled='{{$not isOwner}}')
+    input#content(type='text', value='#{content}', readonly='{{$not isOwner}}')
+    button#delete(disabled='{{$not isOwner}}') Delete

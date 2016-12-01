@@ -1,0 +1,19 @@
+//-
+  client/components/list.jade
+  List refers to a basic unit, which is a todo list
+  -
+
+  
+template(name='list')
+  
+  .list
+  
+    input#name(type='text', value='#{name}', readonly='{{$not isOwner}}')
+    button#delete(disabled='{{$not isOwner}}') Delete
+    button#new_item(disabled='{{$not isOwner}}') Add new Item
+    span {{#if isOwner}} is owner {{/if}}
+    
+    hr
+    
+    each items
+      +item

@@ -100,3 +100,6 @@ Items.helpers
 
   list: ->
     Lists.findOne @list_id
+
+  isOwner: ->
+    @created_by == Meteor.userId()

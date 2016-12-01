@@ -14,7 +14,7 @@ Template.list.events
     item =
       list_id: @_id
     Meteor.call 'items.insert', item
-    
+
 
   'focusout .list #name': (e) ->
     e.preventDefault()
