@@ -10,4 +10,4 @@ template(name='item')
 
     input#check(type='checkbox', checked='#{checked}', disabled='{{$not isOwner}}')
     input#content(type='text', value='#{content}', readonly='{{$not isOwner}}')
-    button#delete(disabled='{{$not isOwner}}') Delete
+    .btn#delete(disabled='{{$not isOwner}}') Delete

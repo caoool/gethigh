@@ -6,15 +6,11 @@
   -
 
 
-template(name='main')
+template(name='main')    
 
   .main
 
-    hr
-    +searchbar
-
-    hr
-    +types
+    +banner
     
     hr
     button#new_list Add new list
@@ -29,7 +25,7 @@ template(name='main')
       
         .col-xs-12.col-sm-6.col-md-4
           a.toggle(data-toggle='modal', data-target='#myModal')
-            .preview.disabled
+            .preview
               +list
       
       if loadmore

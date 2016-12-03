@@ -1,0 +1,108 @@
+/*
+ *  client/components/banner.css
+ */
+
+
+ .banner {
+     position: relative;
+     text-align: center;
+     z-index: 1;
+     width: 100%;
+     background: url(img/galaxy.jpg);
+     background-position: bottom;
+ 	   height: 500px;
+ }
+
+ @media (max-width: 960px) {
+ 	.header {
+ 		height: 400px;
+ 	}
+ }
+
+ @media (max-width: 480px) {
+     .header {
+         text-align: left;
+     }
+
+     .logo {
+         float: left;
+     }
+
+     .search-area {
+         float: left;
+     }
+
+     .search-title {
+         text-align: left;
+         float: left;
+     }
+
+     .search-box input[type="search"] {
+         margin-top: 20px;
+         background-color: #fff;
+         border-radius: 5px;
+         border-color: #fff;
+         border-style: solid;
+         font-size: 20px;
+         font-weight: 300;
+         outline: none;
+         padding-top: 8px;
+         padding-left: 8px;
+         padding-right: 8px;
+         padding-bottom: 4px;
+     }
+ }
+
+ .header-inner {
+     width: auto;
+     padding: 20px;
+     vertical-align: bottom;
+ }
+
+ .side-nav-btn {
+     float: left;
+     font-size: 20px;
+ }
+
+ .side-nav-btn:hover {
+     color: #e6ae49;
+ }
+
+ .user-msg {
+     float: left;
+     padding-left: 10px;
+ }
+
+ .logo {
+     text-align: right;
+ }
+
+ .search-area {
+     width: auto;
+     padding-top: 100px;
+     padding-bottom: 100px;
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+
+ .search-title {
+     text-align: center;
+     font-size: 40px;
+     color: #fff;
+     line-height: 32px;
+ }
+
+ .search-box input[type="search"] {
+     margin-top: 20px;
+     background-color: #fff;
+     border-radius: 5px;
+     border-color: #fff;
+     border-style: solid;
+     font-size: 20px;
+     font-weight: 300;
+     outline: none;
+     padding-top: 8px;
+     padding-left: 8px;
+     padding-right: 8px;
+     padding-bottom: 4px;
+ }

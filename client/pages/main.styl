@@ -1,26 +1,19 @@
+/*
+ *  client/pages/main.styl
+ */
+
+
+
 .main
 
   .lists
 
     .preview
+      background: white
+      box-shadow: 10px 10px 10px lightgrey
       margin: 30px
-      background: lightgrey
-
-      .list_cover
-        bottom: 30px
-        left: 50px
-        overflow: hidden
-        position: absolute
-        right: 50px
-        top: 30px
-
-        img
-          height: auto
-          opacity: .3
-          width: 100%
-
+      transition: background-color .5s
 
     .preview:hover
-
-      .list
-        transform: scale(1.1)
+      background-color: lightgrey
+      transform: scale(1.1)

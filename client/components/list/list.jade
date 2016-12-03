@@ -9,8 +9,8 @@ template(name='list')
   .list
   
     input#name(type='text', value='#{name}', readonly='{{$not isOwner}}')
-    button#delete(disabled='{{$not isOwner}}') Delete
-    button#new_item(disabled='{{$not isOwner}}') Add new Item
+    .btn#delete(disabled='{{$not isOwner}}') Delete
+    .btn#new_item(disabled='{{$not isOwner}}') Add new Item
     span {{#if isOwner}} is owner {{/if}}
     
     hr
