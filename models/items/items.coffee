@@ -46,6 +46,7 @@ Items.schema = new SimpleSchema
 
   content:
     type: String
+    optional: true
 
   checked:
     type: Boolean
@@ -99,3 +100,6 @@ Items.helpers
 
   list: ->
     Lists.findOne @list_id
+
+  isOwner: ->
+    @created_by == Meteor.userId()

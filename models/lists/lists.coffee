@@ -31,10 +31,11 @@ Lists.schema = new SimpleSchema
 
   name:
     type: String
+    defaultValue: 'New List'
 
   created_by:
     type: String
-    regEx: SimpleSchema.RegEx.Id
+    # regEx: SimpleSchema.RegEx.Id
     autoValue: ->
       if @isInsert
         @userId
@@ -76,3 +77,7 @@ Lists.helpers
       list_id: @_id
     , sort:
       createdAt: -1
+
+
+  isOwner: ->
+    @created_by == Meteor.userId()

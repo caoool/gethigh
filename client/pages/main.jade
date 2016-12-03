@@ -8,20 +8,48 @@
 
 template(name='main')
 
-  +searchbar
+  .main
 
-  h2 types
-  +types
-  
-  h2 trending tags
-  +tags
-  
-  // Right now I will only put some fake data loops here for placeholder
-  each lists
-    // Bootstrap griding system
-    .col-xs-12.col-sm-6.col-md-4
-      //- p #{list.name}
-      +list
+    hr
+    +searchbar
 
-  if loadmore
-    p#loading Loading...
+    hr
+    +types
+    
+    hr
+    button#new_list Add new list
+    hr
+    
+    //- h2 trending tags
+    //- +tags
+    
+    .lists
+    
+      each lists
+      
+        .col-xs-12.col-sm-6.col-md-4
+          a.toggle(data-toggle='modal', data-target='#myModal')
+            .preview.disabled
+              +list
+      
+      if loadmore
+        p#loading Loading...
+      
+    
+  //-
+    Modal toggle when list (preview) is clicked
+    Reactive data depending on session
+    -
+  with selected_list
+    .modal.fade#myModal(role='dialog')
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            h2 List Detail View
+          .modal-title
+            h1 {{name}}
+          .modal-body
+            +list
+          .modal-footer
+            p whatever
+  
