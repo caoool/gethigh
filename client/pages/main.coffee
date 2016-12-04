@@ -59,7 +59,7 @@ Template.main.helpers
   lists: ->
     Meteor.subscribe 'lists.search', Session.get('search_value')
     if Session.get('search_value')
-      Lists.find { name: Session.get('search_value') }
+      Lists.find { name: {$regex: Session.get('search_value')}}
     else
       Lists.find()
 
