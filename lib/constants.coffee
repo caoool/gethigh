@@ -7,4 +7,4 @@
   SELECTED_LIST_ID : 'selcted_list_id'
 
 
-@LOAD_INCREMENT = 10
+@LOAD_INCREMENT = 25

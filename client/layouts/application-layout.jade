@@ -8,11 +8,18 @@
 
 template(name='application_layout')
   
-  +sidenav
-  
-  #main
-    button#toggle_nav
-      i.fa.fa-bars
-    span #{currentUser.profile.name}
+  .application_layout
+
+    .background
     
-    +yield
+    +search_overlay
+    
+    +sidenav
+    
+    .wrapper
+    
+      +header
+      
+      #main
+        
+        +yield

@@ -8,12 +8,19 @@ template(name='list')
   
   .list
   
-    input#name(type='text', value='#{name}', readonly='{{$not isOwner}}')
-    .btn#delete(disabled='{{$not isOwner}}') Delete
-    .btn#new_item(disabled='{{$not isOwner}}') Add new Item
-    span {{#if isOwner}} is owner {{/if}}
-    
-    hr
-    
+    if isOwner
+      .pull-right
+        i.indicator.fa.fa-archive
+  
+    input#name.editable_display_list(type='text', value='#{name}', readonly='{{$not isOwner}}')
+
     each items
       +item
+    
+    .pull-right
+      div
+        #new_item.btn(disabled='{{$not isOwner}}') Add new Item
+          i.fa.fa-plus-circle.ft-lg
+      div
+        #delete.btn.pull-right(disabled='{{$not isOwner}}') Delete
+          i.fa.fa-times-circle.ft-lg

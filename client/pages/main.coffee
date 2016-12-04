@@ -14,6 +14,7 @@ loadmore = ->
 
   target = $ '#loading'
   threshold = $(window).scrollTop() + $(window).height() - target.height()
+  return if !target.length
 
   if target.offset().top < threshold
     if !target.data 'visible'
@@ -46,12 +47,6 @@ Template.main.onRendered ->
 
 
 Template.main.events
-
-  'click .main #new_list': (e) ->
-    e.preventDefault()
-
-    Meteor.call 'lists.insert', {}
-
 
   'click .main .lists .toggle': (e) ->
     e.preventDefault()

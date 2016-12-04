@@ -3,12 +3,12 @@
 
 Template.item.events
 
-  'change .item #check': (e) ->
+  'click .item #check': (e) ->
     e.preventDefault()
 
     item =
       _id: @_id
-      checked: e.target.checked
+      checked: !Template.instance().data['checked']
     Meteor.call 'items.update', item
 
 

@@ -9,22 +9,27 @@
   .lists
 
     .preview
-      background: white
-      box-shadow: 10px 10px 10px lightgrey
+      background-color: GhostWhite
+      border-radius: 8px
       margin: 30px
-      transition: background-color .5s
+      overflow: hidden
+      transition: all .2s ease-in-out
 
     .preview:hover
-      background-color: lightgrey
-      transform: scale(1.1)
+      transform: scale(1.05)
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, .35)
 
-.overylay-container
-  position: relative
+      .list
+        z-index: -1
+        transform: scale(1.1)
 
-.overlay
-  height: 100%
-  left: 0
-  position: absolute
-  top: 0
-  z-index: 2
-  width: 100%
+// .overylay-container
+//   position: relative
+//
+// .overlay
+//   height: 100%
+//   left: 0
+//   position: absolute
+//   top: 0
+//   z-index: 2
+//   width: 100%

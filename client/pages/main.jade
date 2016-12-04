@@ -9,15 +9,8 @@
 template(name='main')
 
   .main
-
-    +banner
-
-    hr
-    button#new_list Add new list
-    hr
-
-    //- h2 trending tags
-    //- +tags
+  
+    //- button#new_list Add new list
 
     .lists
 
@@ -26,9 +19,9 @@ template(name='main')
         .col-xs-12.col-sm-6.col-md-4.overlay-container
           unless currentUser
             .overlay
-          a.toggle(data-toggle='modal', data-target='#myModal')
-            .preview
-              +list
+          //- a.toggle(data-toggle='modal', data-target='#myModal')
+          .preview
+            +list
 
       if loadmore
         p#loading Loading...
@@ -39,14 +32,12 @@ template(name='main')
     Reactive data depending on session
     -
   with selected_list
+  
     .modal.fade#myModal(role='dialog')
       .modal-dialog.modal-lg
         .modal-content
           .modal-header
-            h2 List Detail View
           .modal-title
-            h1 {{name}}
           .modal-body
             +list
           .modal-footer
-            p whatever

@@ -7,7 +7,12 @@
 template(name='item')
 
   .item
-
-    input#check(type='checkbox', checked='#{checked}', disabled='{{$not isOwner}}')
-    input#content(type='text', value='#{content}', readonly='{{$not isOwner}}')
-    .btn#delete(disabled='{{$not isOwner}}') Delete
+    
+    if checked
+      input#content.editable_display_item.checked(type='text', value='#{content}', readonly='{{$not isOwner}}')
+    else
+      input#content.editable_display_item(type='text', value='#{content}', readonly='{{$not isOwner}}')
+    .btn#check(disabled='{{$not isOwner}}')
+      i.fa.fa-check
+    .btn#delete(disabled='{{$not isOwner}}')
+      i.fa.fa-times
