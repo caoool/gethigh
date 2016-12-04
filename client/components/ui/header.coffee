@@ -61,3 +61,11 @@ Template.header.events
     e.preventDefault()
 
     Meteor.call 'lists.insert', {}
+
+  'click #filter_all': (e) ->
+    e.preventDefault()
+    Session.set('filter', 'filter_all')
+
+  'click #filter_owner': (e) ->
+    e.preventDefault()
+    Session.set('filter', 'filter_owner')
