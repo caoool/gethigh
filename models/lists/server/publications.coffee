@@ -21,3 +21,9 @@ Meteor.publish 'lists.all', (limit=0) ->
 Meteor.publish 'lists.id', (_id) ->
 
   Lists.find _id
+
+
+Meteor.publish 'lists.search', (search_value) ->
+
+  Lists.find { name: search_value }
+

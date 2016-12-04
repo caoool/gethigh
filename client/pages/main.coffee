@@ -57,7 +57,11 @@ Template.main.events
 Template.main.helpers
 
   lists: ->
-    Lists.find()
+    Meteor.subscribe 'lists.search', Session.get('search_value')
+    if Session.get('search_value')
+      Lists.find { name: Session.get('search_value') }
+    else
+      Lists.find()
 
   loadmore: ->
     !(Lists.find().count() < Session.get SESSION_NAMES.LISTS_LOAD_LIMIT)
