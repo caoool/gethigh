@@ -34,6 +34,11 @@ Template.list.events
 
     Meteor.call 'lists.remove', {@_id}
 
+  'click .list #follow': (e) ->
+    e.preventDefault()
+
+    console.log('tt')
+
 
 Template.list.helpers
 
