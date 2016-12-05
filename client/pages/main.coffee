@@ -57,13 +57,14 @@ Template.main.events
 Template.main.helpers
 
   lists: ->
-    if Session.get('filter') == 'filter_owner'
-      Lists.find { created_by: Meteor.userId()}
+    if Session.get('filter') == 'filter_owner' && Session.get('search_value')
+      Lists.find { name: {$regex: Session.get('search_value'), $options: 'i'}, created_by: Meteor.userId()}
+    else if Session.get('filter') == 'filter_owner'
+      Lists.find { created_by: Meteor.userId() }
+    else if Session.get('search_value')
+      Lists.find { name: {$regex: Session.get('search_value'), $options: 'i'}}
     else
-      if Session.get('search_value')
-        Lists.find { name: {$regex: Session.get('search_value')}}
-      else
-        Lists.find()
+      Lists.find()
 
   loadmore: ->
     !(Lists.find().count() < Session.get SESSION_NAMES.LISTS_LOAD_LIMIT)
