@@ -8,7 +8,7 @@
 # PARAMS
 #   {Object?}     list -> optional
 #     {String?}   name -> optional, name of the list
-#     
+#    
 insert = new ValidatedMethod
 
   name: 'lists.insert'
@@ -71,3 +71,23 @@ remove = new ValidatedMethod
   run: ({_id}) ->
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
     Lists.remove _id
+
+# !!!
+#   MUST BE A LOGGED IN USER TO CALL THIS METHOD
+# DESC
+#   Follow a list
+# PARAMS
+#   {Object}    list
+#     {String}  _id -> must provide _id
+#     {String?} name -> optional
+#
+follow = new ValidatedMethod
+
+  name: 'lists.follow'
+
+  validate: null
+
+  run: (data) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
+    console.log(data)
+    Lists.update {_id: data._id}, $push: followed_by: data.followed_by

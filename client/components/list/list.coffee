@@ -36,8 +36,8 @@ Template.list.events
 
   'click .list #follow': (e) ->
     e.preventDefault()
-
-    console.log('tt')
+    followed_by = Meteor.userId()
+    Meteor.call 'lists.follow', {@_id, followed_by}
 
 
 Template.list.helpers

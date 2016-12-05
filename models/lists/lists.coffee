@@ -53,6 +53,10 @@ Lists.schema = new SimpleSchema
         $setOnInsert: new Date
       else
         @unset()
+        
+  followed_by:
+    type: [String]
+    defaultValue: []
 
 Lists.attachSchema Lists.schema
 
@@ -62,6 +66,7 @@ Lists.publicFields =
   name:       1
   created_by: 1
   created_at: 1
+  followed_by: 1
 
 
 Factory.define 'list', Lists,
