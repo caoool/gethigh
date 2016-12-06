@@ -8,7 +8,9 @@
 #
 Meteor.publish 'lists.all', (limit=0) ->
 
-  Lists.find {}, limit: limit
+  Lists.find {},
+    sort: created_at: -1
+    limit: limit
 
 
 # DESC

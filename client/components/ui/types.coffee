@@ -1,1 +1,0 @@
-# client/components/types.coffee
