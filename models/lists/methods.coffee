@@ -87,6 +87,27 @@ follow = new ValidatedMethod
 
   validate: null
 
-  run: (data) ->
+  run: ({_id, followed_by}) ->
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
-    Lists.update {_id: data._id}, $push: followed_by: data.followed_by
+    # console.log(_id, followed_by)
+    Lists.update {_id: _id}, $push: followed_by: followed_by
+
+# !!!
+#   MUST BE A LOGGED IN USER TO CALL THIS METHOD
+# DESC
+#   Follow a list
+# PARAMS
+#   {Object}    list
+#     {String}  _id -> must provide _id
+#     {String?} name -> optional
+#
+unfollow = new ValidatedMethod
+
+  name: 'lists.unfollow'
+
+  validate: null
+
+  run: ({_id, followed_by}) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
+    # console.log(_id, followed_by)
+    Lists.update {_id: _id}, $pull: followed_by: followed_by

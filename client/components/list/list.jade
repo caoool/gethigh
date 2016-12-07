@@ -25,5 +25,9 @@ template(name='list')
         #delete.btn.pull-right(disabled='{{$not isOwner}}') Delete
           i.fa.fa-times-circle.ft-lg
       div
-        #follow.btn.pull-right Follow 
-          i.fa.fa-star.ft-lg
+        if isFollowedBy
+          #unfollow.btn.pull-right Unfollow 
+            i.fa.fa-star.ft-lg
+        else
+          #follow.btn.pull-right Follow 
+            i.fa.fa-star.ft-lg
