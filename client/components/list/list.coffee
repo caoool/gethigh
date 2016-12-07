@@ -38,6 +38,7 @@ Template.list.events
     e.preventDefault()
     followed_by = Meteor.userId()
     Meteor.call 'lists.follow', {@_id, followed_by}
+    Meteor.call 'users.follow', {@_id, followed_by}
 
 
 Template.list.helpers

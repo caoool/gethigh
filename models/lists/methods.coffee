@@ -89,5 +89,4 @@ follow = new ValidatedMethod
 
   run: (data) ->
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
-    console.log(data)
     Lists.update {_id: data._id}, $push: followed_by: data.followed_by
