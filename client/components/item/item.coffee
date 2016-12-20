@@ -1,4 +1,4 @@
-# client/components/item-edit.coffee
+# client/components/item.coffee
 
 
 Template.item.events

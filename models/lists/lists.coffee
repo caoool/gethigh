@@ -33,6 +33,10 @@ Lists.schema = new SimpleSchema
     type: String
     defaultValue: 'New List'
 
+  followed_by:
+    type: [String]
+    defaultValue: []
+
   created_by:
     type: String
     # regEx: SimpleSchema.RegEx.Id
@@ -53,20 +57,17 @@ Lists.schema = new SimpleSchema
         $setOnInsert: new Date
       else
         @unset()
-        
-  followed_by:
-    type: [String]
-    defaultValue: []
+
 
 Lists.attachSchema Lists.schema
 
 
 Lists.publicFields =
 
-  name:       1
-  created_by: 1
-  created_at: 1
-  followed_by: 1
+  name:         1
+  followed_by:  1
+  created_by:   1
+  created_at:   1
 
 
 Factory.define 'list', Lists,
@@ -83,9 +84,8 @@ Lists.helpers
     , sort:
       createdAt: -1
 
-
   isOwner: ->
     @created_by == Meteor.userId()
 
   isFollowedBy: ->
-    (Meteor.userId() in @followed_by)
+    Meteor.userId() in @followed_by

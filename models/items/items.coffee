@@ -10,10 +10,8 @@ class ItemsCollection extends Mongo.Collection
   insert: (item, callback) ->
     super item, callback
 
-
   update: (selector, modifier, callback) ->
     super selector, modifier, callback
-
 
   # Things like removing a list will remove all its associated items
   # can ben defined here with thin overwritten method

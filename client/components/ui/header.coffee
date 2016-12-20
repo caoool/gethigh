@@ -31,6 +31,7 @@ Template.header.onRendered ->
 Template.header.events
 
   'click #toggle_nav': (e) ->
+
     e.preventDefault()
 
     unless navIsToggled
@@ -44,7 +45,9 @@ Template.header.events
       # $('#main').css 'marginLeft', '0'
       navIsToggled = false
 
+
   'click .search-overlay-menu-btn': (e) ->
+
     e.preventDefault()
 
     $('.search-overlay-menu').addClass 'open'
@@ -52,20 +55,28 @@ Template.header.events
 
 
   'click .search-overlay-close': (e) ->
+
     e.preventDefault()
 
     $('.search-overlay-menu').removeClass 'open'
 
 
   'click #new_list': (e) ->
+
     e.preventDefault()
 
     Meteor.call 'lists.insert', {}
 
+
   'click #filter_all': (e) ->
+
     e.preventDefault()
+
     Session.set('filter', 'filter_all')
 
+
   'click #filter_owner': (e) ->
+
     e.preventDefault()
+
     Session.set('filter', 'filter_owner')

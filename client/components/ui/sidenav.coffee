@@ -12,6 +12,7 @@ Template.sidenav.onCreated ->
 Template.sidenav.events
 
   'click #login_with_google': (e) ->
+
     e.preventDefault()
 
     Meteor.loginWithGoogle (error, result) ->
@@ -22,6 +23,7 @@ Template.sidenav.events
 
 
   'click #login_with_facebook': (e) ->
+
     e.preventDefault()
 
     Meteor.loginWithFacebook (error, result) ->
@@ -32,6 +34,7 @@ Template.sidenav.events
 
 
   'click #link_with_google': (e) ->
+
     e.preventDefault()
 
     Meteor.linkWithGoogle (error, result) ->
@@ -42,6 +45,7 @@ Template.sidenav.events
 
 
   'click #link_with_facebook': (e) ->
+
     e.preventDefault()
 
     Meteor.linkWithFacebook (error, result) ->
@@ -52,7 +56,8 @@ Template.sidenav.events
 
 
   'click #logout': (e) ->
-    e.preventDefault()
 
+    e.preventDefault()
+    
     Meteor.logout (error) ->
       if error then console.log error

@@ -9,6 +9,7 @@ Template.list.onCreated ->
 Template.list.events
 
   'click .list #new_item': (e) ->
+
     e.preventDefault()
 
     item =
@@ -17,6 +18,7 @@ Template.list.events
 
 
   'focusout .list #name': (e) ->
+
     e.preventDefault()
 
     oldName = Template.instance().data['name']
@@ -30,26 +32,30 @@ Template.list.events
 
 
   'click .list #delete': (e) ->
+
     e.preventDefault()
 
     Meteor.call 'lists.remove', {@_id}
 
+
   'click .list #follow': (e) ->
+
     e.preventDefault()
 
     followed_by = Meteor.userId()
     Meteor.call 'lists.follow', {@_id, followed_by}
-    Meteor.call 'users.follow', @_id
+
 
   'click .list #unfollow': (e) ->
+
     e.preventDefault()
 
     followed_by = Meteor.userId()
     Meteor.call 'lists.unfollow', {@_id, followed_by}
-    Meteor.call 'users.unfollow', @_id
 
 
 Template.list.helpers
 
   items: ->
+
     Items.find list_id: Template.instance().data['_id']

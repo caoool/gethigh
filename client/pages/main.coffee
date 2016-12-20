@@ -36,6 +36,7 @@ Template.main.onCreated ->
   Session.setDefault SESSION_NAMES.LISTS_LOAD_LIMIT, LOAD_INCREMENT
 
   @autorun ->
+
     Meteor.subscribe 'lists.all', Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
 
 
@@ -49,6 +50,7 @@ Template.main.onRendered ->
 Template.main.events
 
   'click .main .lists .toggle': (e) ->
+
     e.preventDefault()
 
     Session.set SESSION_NAMES.SELECTED_LIST_ID, @_id
@@ -57,6 +59,7 @@ Template.main.events
 Template.main.helpers
 
   lists: ->
+
     if Session.get('filter') == 'filter_owner' && Session.get('search_value')
       Lists.find { name: {$regex: Session.get('search_value'), $options: 'i'}, created_by: Meteor.userId()}
     else if Session.get('filter') == 'filter_owner'
@@ -66,8 +69,12 @@ Template.main.helpers
     else
       Lists.find()
 
+
   loadmore: ->
+
     !(Lists.find().count() < Session.get SESSION_NAMES.LISTS_LOAD_LIMIT)
 
+
   selected_list: ->
+
     Lists.findOne Session.get SESSION_NAMES.SELECTED_LIST_ID
