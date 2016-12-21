@@ -12,7 +12,6 @@
 loadmore = ->
   isAtBottom = ($(window).scrollTop() + $(window).height() == $(document).height())
   if isAtBottom
-    console.log('loading more')
     newLimit = LOAD_INCREMENT + Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
     Session.set SESSION_NAMES.LISTS_LOAD_LIMIT, newLimit
 
@@ -33,13 +32,9 @@ Template.main.onRendered ->
   # If so, load more data, this will give the effect of infinite scrolling
   $(window).scroll loadmore
   if !window.iso
-    window.iso = new Isotope(
-      '.lists',
-      {
-        itemSelector: '.preview',
-        layoutMode: 'masonry',
-      }
-    )
+    window.iso = new Isotope '.lists',
+      itemSelector: '.preview',
+      layoutMode: 'masonry'
 
 
 Template.main.events

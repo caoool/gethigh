@@ -6,7 +6,7 @@ Template.list.onCreated ->
 
 Template.list.onRendered ->
   if window.iso
-    window.iso.insert(Template.instance().firstNode.parentNode)
+    window.iso.insert Template.instance().firstNode.parentNode
 
 Template.list.events
   'click .list #new_item': (e) ->
