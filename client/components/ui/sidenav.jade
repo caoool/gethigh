@@ -4,34 +4,26 @@
   It basically handles login/logout and some basic navigation
   -
   
-  
 template(name='sidenav')
-  
   //-
     Please make sure components have its content under a div with
     its template name as its class name for better css scope and
     reuseability later on
     -
   .sidenav
-    
     //-
       Display login buttons if no current user
       Display user name and logout button is someone logged in
       currentUser is an object that Meteor provide to frontend
       -
     if currentUser
-    
       p #{currentUser.profile.name}
-      
       // 'unless' in blaze handlebar means if not
       unless currentUser.services.google.name
         button#link_with_google Link With Google
       unless currentUser.services.facebook.name
         button#link_with_facebook Link With Facebook
-      
       button#logout Logout
-      
     else
-    
       button#login_with_google Login with Google
       button#login_with_facebook Login with Facebook

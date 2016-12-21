@@ -3,11 +3,8 @@
   Item refers to every todo entry inside a list
   -
 
-
 template(name='item')
-
   .item
-    
     if checked
       input#content.editable_display_item.checked(type='text', value='#{content}', readonly='{{$not isOwner}}')
     else

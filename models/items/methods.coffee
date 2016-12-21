@@ -12,7 +12,6 @@
 #     {bool?}     checked -> optional
 #
 insert = new ValidatedMethod
-
   name: 'items.insert'
 
   validate: new SimpleSchema
@@ -45,7 +44,6 @@ insert = new ValidatedMethod
 #     {String?} checked -> optional
 #
 update = new ValidatedMethod
-
   name: 'items.update'
 
   validate: new SimpleSchema
@@ -76,7 +74,6 @@ update = new ValidatedMethod
 #   {String}  _id
 #
 remove = new ValidatedMethod
-
   name: 'items.remove'
 
   validate: new SimpleSchema

@@ -8,6 +8,5 @@
 #   {String} list_id
 #
 Meteor.publish 'items.inList', (list_id)->
-
 	Items.find
     list_id: list_id

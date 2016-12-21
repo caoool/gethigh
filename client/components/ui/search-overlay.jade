@@ -2,17 +2,12 @@
   client/components/ui/search-overlay.jade
   -
   
-  
 template(name='search_overlay')
-  
   .search_overlay
-  
     .search-overlay-menu
-    
       span.search-overlay-close
         i.fa.fa-times
-      
-      form
-        input(type='search', placeholder='Search...')
+      form.search-overlay
+        input(id='search', name='text', type='search', placeholder='Search...')
         button
           i.fa.fa-search

@@ -5,34 +5,24 @@
   Lists and items will be seperate components defined inside ../components/...
   -
 
-
 template(name='main')
-
   .main
-  
     //- button#new_list Add new list
-
     .lists
-
       each lists
-
         .col-xs-12.col-sm-6.col-md-4.overlay-container
           unless currentUser
             .overlay
           //- a.toggle(data-toggle='modal', data-target='#myModal')
           .preview
             +list
-
       if loadmore
         p#loading Loading...
-
-
   //-
     Modal toggle when list (preview) is clicked
     Reactive data depending on session
     -
   with selected_list
-  
     .modal.fade#myModal(role='dialog')
       .modal-dialog.modal-lg
         .modal-content
