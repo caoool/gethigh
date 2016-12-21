@@ -10,18 +10,10 @@
 #   Used to detect and load more data for infinite scrolling
 #
 loadmore = ->
-  target = $ '#loading'
-  threshold = $(window).scrollTop() + $(window).height() - target.height()
-  return if !target.length
-  if target.offset().top < threshold
-    if !target.data 'visible'
-      target.data 'visible', true
-      newLimit = LOAD_INCREMENT + Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
-      Session.set SESSION_NAMES.LISTS_LOAD_LIMIT, newLimit
-  else
-    if target.data 'visible'
-      target.data 'visible', false
-
+  isAtBottom = ($(window).scrollTop() + $(window).height() == $(document).height())
+  if isAtBottom
+    newLimit = LOAD_INCREMENT + Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
+    Session.set SESSION_NAMES.LISTS_LOAD_LIMIT, newLimit
 
 ########################
 # Template Controllers #
@@ -31,12 +23,18 @@ Template.main.onCreated ->
   Session.setDefault SESSION_NAMES.LISTS_LOAD_LIMIT, LOAD_INCREMENT
   @autorun ->
     Meteor.subscribe 'lists.all', Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
+    if window.iso
+      window.iso.arrange()
 
 
 Template.main.onRendered ->
   # When user scroll check if load more is visible (detect bottom)
   # If so, load more data, this will give the effect of infinite scrolling
   $(window).scroll loadmore
+  if !window.iso
+    window.iso = new Isotope '.lists',
+      itemSelector: '.preview',
+      layoutMode: 'masonry'
 
 
 Template.main.events

@@ -10,12 +10,8 @@ template(name='main')
     //- button#new_list Add new list
     .lists
       each lists
-        .col-xs-12.col-sm-6.col-md-4.overlay-container
-          unless currentUser
-            .overlay
-          //- a.toggle(data-toggle='modal', data-target='#myModal')
-          .preview
-            +list
+        .preview
+          +list
       if loadmore
         p#loading Loading...
   //-
