@@ -30,7 +30,7 @@ Template.list.events
     e.preventDefault()
     Meteor.call 'lists.star', {@_id}
 
-  'click .list #unfollow': (e) ->
+  'click .list #unstar': (e) ->
     e.preventDefault()
     followed_by = Meteor.userId()
     Meteor.call 'lists.unstar', {@_id}
