@@ -8,9 +8,8 @@
 # PARAMS
 #   {Object?}     list -> optional
 #     {String?}   name -> optional, name of the list
-#    
+#
 insert = new ValidatedMethod
-
   name: 'lists.insert'
 
   validate: new SimpleSchema
@@ -34,7 +33,6 @@ insert = new ValidatedMethod
 #     {String?} name -> optional
 #
 update = new ValidatedMethod
-
   name: 'lists.update'
 
   validate: new SimpleSchema
@@ -59,7 +57,6 @@ update = new ValidatedMethod
 #   {String}  _id
 #
 remove = new ValidatedMethod
-
   name: 'lists.remove'
 
   validate: new SimpleSchema
@@ -72,6 +69,7 @@ remove = new ValidatedMethod
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
     Lists.remove _id
 
+
 # !!!
 #   MUST BE A LOGGED IN USER TO CALL THIS METHOD
 # DESC
@@ -82,7 +80,6 @@ remove = new ValidatedMethod
 #     {String?} name -> optional
 #
 follow = new ValidatedMethod
-
   name: 'lists.follow'
 
   validate: null
@@ -91,6 +88,7 @@ follow = new ValidatedMethod
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
     # console.log(_id, followed_by)
     Lists.update {_id: _id}, $push: followed_by: followed_by
+
 
 # !!!
 #   MUST BE A LOGGED IN USER TO CALL THIS METHOD
@@ -102,7 +100,6 @@ follow = new ValidatedMethod
 #     {String?} name -> optional
 #
 unfollow = new ValidatedMethod
-
   name: 'lists.unfollow'
 
   validate: null

@@ -2,21 +2,15 @@
   client/components/list.jade
   List refers to a basic unit, which is a todo list
   -
-
   
 template(name='list')
-  
   .list
-  
     if isOwner
       .pull-right
         i.indicator.fa.fa-archive
-  
     input#name.editable_display_list(type='text', value='#{name}', readonly='{{$not isOwner}}')
-
     each items
       +item
-    
     .pull-right
       div
         #new_item.btn(disabled='{{$not isOwner}}') Add new Item

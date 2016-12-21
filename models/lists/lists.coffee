@@ -4,7 +4,6 @@
 
 
 class ListsCollection extends Mongo.Collection
-
   insert: (list, callback) ->
     super list, callback
 
@@ -21,14 +20,12 @@ class ListsCollection extends Mongo.Collection
 
 
 Lists.deny
-
   insert: -> yes
   update: -> yes
   remove: -> yes
 
 
 Lists.schema = new SimpleSchema
-
   name:
     type: String
     defaultValue: 'New List'
@@ -63,21 +60,18 @@ Lists.attachSchema Lists.schema
 
 
 Lists.publicFields =
-
-  name:         1
-  followed_by:  1
-  created_by:   1
-  created_at:   1
+  name: 1
+  followed_by: 1
+  created_by: 1
+  created_at: 1
 
 
 Factory.define 'list', Lists,
-
   name: ->
     faker.lorem.words(3).join ' '
 
 
 Lists.helpers
-
   items: ->
     Items.find
       list_id: @_id

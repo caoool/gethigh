@@ -13,7 +13,6 @@
 #   the user's login services
 #
 Meteor.publish 'userData', ->
-  
   if @userId
     Meteor.users.find @userId,
       fields:

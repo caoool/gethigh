@@ -4,7 +4,6 @@
 
 
 class ItemsCollection extends Mongo.Collection
-
   # Overwrite super class to modify our intended behaviours
   # We will probably modify these functions later
   insert: (item, callback) ->
@@ -28,7 +27,6 @@ class ItemsCollection extends Mongo.Collection
 
 # Denying all database modification made by client side for security
 Items.deny
-
   insert: -> yes
   update: -> yes
   remove: -> yes
@@ -37,7 +35,6 @@ Items.deny
 # Using SimpleSchema and Collection2 packages to define schema of a collection
 # MongoDB intially is free style -> no schema required
 Items.schema = new SimpleSchema
-
   list_id:
     type: String
     regEx: SimpleSchema.RegEx.Id
@@ -60,7 +57,7 @@ Items.schema = new SimpleSchema
         $setOnInsert: @userId
       else
         @unset()
-
+        
   created_at:
     type: Date
     autoValue: ->
@@ -75,7 +72,6 @@ Items.attachSchema Items.schema
 
 
 Items.publicFields =
-
   list_id:    1
   content:    1
   checked:    1
@@ -86,7 +82,6 @@ Items.publicFields =
 # Factory package used to generate testing database
 # Often coupled with faker package 'faker.js'
 Factory.define 'item', Items,
-
   list_id: ->
     Factory.get 'list'
 
@@ -95,7 +90,6 @@ Factory.define 'item', Items,
 
 
 Items.helpers
-
   list: ->
     Lists.findOne @list_id
 

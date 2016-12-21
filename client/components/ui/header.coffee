@@ -3,12 +3,9 @@
 
 navIsToggled = false
 
-
 stickyHeader = ->
-
   scrolled = $(window).scrollTop()
   windHeight = $(window).height()
-
   if scrolled > 150
     $('.header').addClass 'header-prepare'
   else
@@ -20,7 +17,6 @@ stickyHeader = ->
 
 
 Template.header.onRendered ->
-
   $(window).scroll ->
     stickyHeader()
 
@@ -29,11 +25,8 @@ Template.header.onRendered ->
 
 
 Template.header.events
-
   'click #toggle_nav': (e) ->
-
     e.preventDefault()
-
     unless navIsToggled
       $('.sidenav').css 'width', '380px'
       # uncomment to enable push content
@@ -45,38 +38,23 @@ Template.header.events
       # $('#main').css 'marginLeft', '0'
       navIsToggled = false
 
-
   'click .search-overlay-menu-btn': (e) ->
-
     e.preventDefault()
-
     $('.search-overlay-menu').addClass 'open'
     $('.search-overlay-menu input').focus()
 
-
   'click .search-overlay-close': (e) ->
-
     e.preventDefault()
-
     $('.search-overlay-menu').removeClass 'open'
 
-
   'click #new_list': (e) ->
-
     e.preventDefault()
-
     Meteor.call 'lists.insert', {}
 
-
   'click #filter_all': (e) ->
-
     e.preventDefault()
-
     Session.set('filter', 'filter_all')
 
-
   'click #filter_owner': (e) ->
-
     e.preventDefault()
-
     Session.set('filter', 'filter_owner')

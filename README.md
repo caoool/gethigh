@@ -31,20 +31,20 @@ Here we will be mainly focusing on the MEAN stack:
 * A - AngularJS
 * N - NodeJS
 
-It is commonly stacked in the NodeJS world, however, we will not be using this stack even we will be sticking with NodeJS, because ExpressJS is sort of a raw engine, and it takes more efforts to put together a relatively big project. So, that leads us to a great and popular choice in Node's world - Meteor (full stack, frontend coupled default with "Blaze").
+It is commonly stacked in the NodeJS world, however, we will not be using this stack even we will be sticking with NodeJS, because ExpressJS is sort of a raw engine, and it takes more efforts to put together a relatively big project. So, that leads us to a great and popular choice in Node's world - Meteor (full stack, front-end coupled default with "Blaze").
 
 ### NodeJS
 
 NodeJS is currently the most popular environment for web programming. I can just list a few benefits here:
 
-* It's Javascript, so backend and frontend can be coherent
+* It's Javascript, so backend and front-end can be coherent
 * Asynchronous, non-blocking which means easier and better concurrent handling
 * NPM (package manager) has the greatest number of packages over its compartments
 * Meteor is UNIQUE (you must have faith on this one)
 
-Here we will write Javascript in CoffeeScript bacause
+Here we will write Javascript in CoffeeScript because
 * Eliminates all the ';' and '{}'
-* Lots of syntax sugers
+* Lots of syntax sugars
 * Advance features that plain JS does not support like class...
 * [jss:CoffeeScript-property](https://atmospherejs.com/jss/CoffeeScript-property) recommended for better OO experience
 
@@ -52,7 +52,7 @@ Other characteristics can be googled by yourself.
 
 ### Meteor
 
-Meteor is a full stack framework. It uses NodeJS for backend programming, and Blaze for frontend by default. It also can integrate with AngularJS or ReactJS as the frontend framework.
+Meteor is a full stack framework. It uses NodeJS for backend programming, and Blaze for front-end by default. It also can integrate with AngularJS or ReactJS as the front-end framework.
 
 Some Meteor advantages:
 
@@ -88,9 +88,9 @@ Some Meteor advantages:
   * Please go over the tutorial at first to have a general picture of how meteor executes
   * Make sure to read [the CoffeeScript version](https://github.com/meteor/todos/tree/CoffeeScript) after finish the tutorial because we will be using CoffeeScript in this project
 * [Meteor guide](https://guide.meteor.com/)
-  * Recommended for both frontend and backend developers
+  * Recommended for both front-end and backend developers
   * Backend developers need to focus on all sections except VIEW
-  * Frontend developers need to focus on VIEW but also will need to have some basic understanding of other elements
+  * Front-end developers need to focus on VIEW but also will need to have some basic understanding of other elements
   * No need to read it too carefully since we will have sample projects
 * [Meteor doc](http://docs.meteor.com/)
   * References, mainly for backend
@@ -119,7 +119,7 @@ Webstorm (subset of IntelliJ IDE) has full support of MeteorJS, but code intelli
 
 An IDE doesn't really help much in this situation, so I would recommend using atom or sublime or whatever editor you prefer to code.
 
-[Meteor toys](http://meteor.toys/) could be something useful when you develop, it gives you visual feedback on data or other stuff (like showing dataset on frontend...), details can be found on its website. Do not purchase because you can find free version of the core features in AtmosphereJS.
+[Meteor toys](http://meteor.toys/) could be something useful when you develop, it gives you visual feedback on data or other stuff (like showing dataset on front-end...), details can be found on its website. Do not purchase because you can find free version of the core features in AtmosphereJS.
 
 ### MongoDB
 
@@ -130,7 +130,7 @@ In Meteor, MongoDB does not have schema, it has advantages and it also causes tr
 * [aldeed:collection2](https://github.com/aldeed/meteor-collection2)
 * [matb33:collection-hooks](https://github.com/matb33/meteor-collection-hooks/)
 
-Remember that in Meteor, since publication can control what data is available to the frontend when it subscribe to that data set, it's often that frontend does not do complex query. Example: `users.findOne()` will only return one user since the backend publication method only public the current logged in user.
+Remember that in Meteor, since publication can control what data is available to the front-end when it subscribe to that data set, it's often that front-end does not do complex query. Example: `users.findOne()` will only return one user since the backend publication method only public the current logged in user.
 
 [Robomongo](https://robomongo.org/) is a free cross platform MongoDB visualization tool (also editing). So instead of remember all the usage of MongoDB, just simple using this tool to deal with MongoDB (locally and remotely).
 
@@ -146,9 +146,9 @@ To access MongoDB using Robomongo, the address is **localhost** and the port is 
 To access MongoDB deployed using mupx inside a docker in a server, use `docker exec -it mongodb mongo CONTAINER`, replace `CONTAINER` here with our application name.  
 To access MongoDB deployed using Robomongo, I have never tried myself. Educate me if you find a way.
 
-### Frontend
+### Front-end
 
-#### Rounting
+#### Routing
 
 [iron:router](https://github.com/iron-meteor/iron-router/) is used for routing. This Github page has a guide and quick start guide.
 
@@ -196,7 +196,7 @@ branch | my-feature-branch |
 commit | Add a class | Please keep in mind that no past tense (No Added)
 | Update b module |
 | Remove c collection |
-commit message | Added <br> -> a feature <br> -> b file | Past tense is used here <br> Seperate each item with new line starting ->
+commit message | Added <br> -> a feature <br> -> b file | Past tense is used here <br> Separate each item with new line starting ->
 | Updated / removed <br> -> whatever | In case more than one task is done in the commit
 | Add / Update / Remove ... <br> -> ... | Without past tense indicate your future plan after this commit
 
@@ -308,22 +308,22 @@ This is **Extremely Important**, so please take a very close look at this struct
 Some explaination on **special folder names**
 
 * **server** - anything inside server folder will run on server side only
-* **client** - anything inisde client folder will run on client side only
+* **client** - anything inside client folder will run on client side only
 * Anything that not in the above two runs on both sides
 * The above two folder can exist anywhere multiple times in the project, even nested
 * **public** - store public assets like icons, images
 * **private** - store private credentials like google OAuth Tokens, Keys, IDs used by server to connect to 3rd party
 
-#### Tempate Naming
+#### Template Naming
 
 Some view and controllers might have a file name like ***all-lists.jade***, ***all-lists.coffee***.
 
-For ***all-lists.jade*** make sure the associate template in that file is named all**\_**lists by replacing **-** with **\_** like  because then if you double click with mouse of ctrl left right, the long multi word name will be treated as a whole. So the template name definition in Jade will be like `template(name='all_lists')`, and in ***all-lists.coffee***, you call `Tempalte.all_lists.oncreated`.
+For ***all-lists.jade*** make sure the associate template in that file is named all**\_**lists by replacing **-** with **\_** like  because then if you double click with mouse of ctrl left right, the long multi word name will be treated as a whole. So the template name definition in Jade will be like `template(name='all_lists')`, and in ***all-lists.coffee***, you call `Template.all_lists.oncreated`.
 
 ### Coding
 
 #### Empty Lines
-Please make sure between every function, class, blocks, divs -> **2** blank lines.  
+Please make sure between every Classes, Structures, top descriptions, function groups -> **2** blank lines.  
 Between every ideally group -> **1** blank line.
 
 More styles can be visualized in sample project [yiyaabc](https://github.com/caoool/yiyaabc), notice most recent work is under *classes branch*.
@@ -333,7 +333,7 @@ I am aware there are comment generating libraries out there, but so far I haven'
 
 ~~~CoffeeScript
 # !!!
-#   IMPORTANT WARNINGS COMES HERE IN CAPTICAL LETTERS
+#   IMPORTANT WARNINGS COMES HERE IN CAPITAL LETTERS
 # DESC
 #   Briefly describe what it does
 # PARAMS
