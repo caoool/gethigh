@@ -4,6 +4,9 @@
 Template.list.onCreated ->
   @subscribe 'items.inList', Template.instance().data['_id']
 
+Template.list.onRendered ->
+  if window.iso
+    window.iso.insert(Template.instance().firstNode.parentNode)
 
 Template.list.events
   'click .list #new_item': (e) ->
@@ -25,6 +28,8 @@ Template.list.events
   'click .list #delete': (e) ->
     e.preventDefault()
     Meteor.call 'lists.remove', {@_id}
+    if window.iso
+      window.iso.arrange()
 
   'click .list #star': (e) ->
     e.preventDefault()
