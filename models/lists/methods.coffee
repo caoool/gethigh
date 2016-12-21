@@ -73,38 +73,42 @@ remove = new ValidatedMethod
 # !!!
 #   MUST BE A LOGGED IN USER TO CALL THIS METHOD
 # DESC
-#   Follow a list
+#   Star a list (save)
 # PARAMS
 #   {Object}    list
 #     {String}  _id -> must provide _id
-#     {String?} name -> optional
 #
 follow = new ValidatedMethod
-  name: 'lists.follow'
+  name: 'lists.star'
 
-  validate: null
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+  .validator()
 
-  run: ({_id, followed_by}) ->
-    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
-    # console.log(_id, followed_by)
-    Lists.update {_id: _id}, $push: followed_by: followed_by
+  run: ({_id}) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to star a list!' if !@userId
+    Lists.update _id, $push: followed_by: @userId
 
 
 # !!!
 #   MUST BE A LOGGED IN USER TO CALL THIS METHOD
 # DESC
-#   Follow a list
+#   Unstar a list (unsave)
 # PARAMS
 #   {Object}    list
 #     {String}  _id -> must provide _id
-#     {String?} name -> optional
 #
 unfollow = new ValidatedMethod
-  name: 'lists.unfollow'
+  name: 'lists.unstar'
 
-  validate: null
+  validate: new SimpleSchema
+    _id:
+      type: String
+      regEx: SimpleSchema.RegEx.Id
+  .validator()
 
-  run: ({_id, followed_by}) ->
-    throw new Meteor.Error 'unauthorized', 'You must be logged in to delete a list!' if !@userId
-    # console.log(_id, followed_by)
-    Lists.update {_id: _id}, $pull: followed_by: followed_by
+  run: ({_id}) ->
+    throw new Meteor.Error 'unauthorized', 'You must be logged in to unstar a list!' if !@userId
+    Lists.update _id, $pull: followed_by: @userId

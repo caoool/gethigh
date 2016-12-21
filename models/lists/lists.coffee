@@ -81,5 +81,5 @@ Lists.helpers
   isOwner: ->
     @created_by == Meteor.userId()
 
-  isFollowedBy: ->
+  isStarred: ->
     Meteor.userId() in @followed_by

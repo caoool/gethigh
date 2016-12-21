@@ -3,6 +3,7 @@
   List refers to a basic unit, which is a todo list
   -
   
+  
 template(name='list')
   .list
     if isOwner
@@ -19,9 +20,9 @@ template(name='list')
         #delete.btn.pull-right(disabled='{{$not isOwner}}') Delete
           i.fa.fa-times-circle.ft-lg
       div
-        if isFollowedBy
-          #unfollow.btn.pull-right Unfollow 
+        if isStarred
+          #unfollow.btn.pull-right Unstar 
             i.fa.fa-star.ft-lg
         else
-          #follow.btn.pull-right Follow 
+          #follow.btn.pull-right Star 
             i.fa.fa-star.ft-lg
