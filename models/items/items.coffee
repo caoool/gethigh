@@ -47,6 +47,10 @@ Items.schema = new SimpleSchema
     type: Boolean
     defaultValue: no
 
+  finishers:
+    type: [String]
+    defaultValue: []
+
   created_by:
     type: String
     regEx: SimpleSchema.RegEx.Id
@@ -75,6 +79,7 @@ Items.publicFields =
   list_id:    1
   content:    1
   checked:    1
+  finishers:  1
   created_by: 1
   created_at: 1
 
@@ -95,3 +100,7 @@ Items.helpers
 
   isOwner: ->
     @created_by == Meteor.userId()
+
+  followersCount: ->
+    list = Lists.findOne @list_id
+    return list.followers.length

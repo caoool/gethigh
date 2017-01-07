@@ -13,3 +13,4 @@ template(name='item')
       i.fa.fa-check
     .btn#delete(disabled='{{$not isOwner}}')
       i.fa.fa-times
+    .a #{finishers.length.toString} / #{followersCount}

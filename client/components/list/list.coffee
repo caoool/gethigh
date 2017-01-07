@@ -14,6 +14,8 @@ Template.list.events
     item =
       list_id: @_id
     Meteor.call 'items.insert', item
+     #check finisher
+    Meteor.call 'lists.finish', {@_id}
 
   'focusout .list #name': (e) ->
     e.preventDefault()
@@ -33,12 +35,14 @@ Template.list.events
 
   'click .list #star': (e) ->
     e.preventDefault()
-    Meteor.call 'lists.star', {@_id}
+    star = !this.isStarred()
+    Meteor.call 'lists.star', {@_id, star}
 
-  'click .list #unstar': (e) ->
+  'click .list #follow': (e) ->
     e.preventDefault()
-    followed_by = Meteor.userId()
-    Meteor.call 'lists.unstar', {@_id}
+    follow = !this.isFollowed()
+    Meteor.call 'lists.follow', {@_id, follow}
+
 
 
 Template.list.helpers
