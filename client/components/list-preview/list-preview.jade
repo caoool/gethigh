@@ -1,0 +1,26 @@
+template(name="list_preview")
+  .list_preview
+    .img_container
+      if randomImg
+        img(src="/img/steak.jpg" class="preview_img")
+      else
+        img(src="/img/yoga.jpg" class="preview_img")
+    .list_info
+      .flex_container
+        .list_info_text
+          .list_title
+            h4 List Title
+          .list_short_desc
+            p Short description of the list contents that is really short
+        .author_img_container
+          a(href="")
+            img(src="/img/George Clooney.png" class="author_img")
+      .flex_container
+        .followed
+          p followed: 123,321
+        .star_black_unchecked
+          a(href="")
+            img(src="/img/star.png")
+        .star_white_unchecked
+          a(href="")
+            img(src="/img/star-white.png")

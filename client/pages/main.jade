@@ -11,9 +11,8 @@ template(name='main')
     .lists
       each lists
         .preview
-          +list
-      if loadmore
-        p#loading Loading...
+          +list_preview
+
   //-
     Modal toggle when list (preview) is clicked
     Reactive data depending on session
