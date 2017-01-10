@@ -8,8 +8,9 @@
 template(name='application_layout')
   .application_layout
     +search_overlay
+    +header
     +sidenav
-    .wrapper
-      +header
-      #main
-        +yield
+    .box
+      .container
+        #main
+          +yield

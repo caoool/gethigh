@@ -3,7 +3,7 @@
   This template is used in main layout -> side navbar
   It basically handles login/logout and some basic navigation
   -
-  
+
 template(name='sidenav')
   //-
     Please make sure components have its content under a div with
@@ -16,14 +16,37 @@ template(name='sidenav')
       Display user name and logout button is someone logged in
       currentUser is an object that Meteor provide to frontend
       -
+    .close_sidenav
+      a#close_sidenav
+        i.fa.fa-times.fa-2x.fa-white
     if currentUser
-      p #{currentUser.profile.name}
+      .img_container
+        img(src="/img/George Clooney.png")
+      .user_info
+        h4 #{currentUser.profile.name}
+        ul
+        p Whatever user info we put here
+        p Just typing here to fill some space
       // 'unless' in blaze handlebar means if not
-      unless currentUser.services.google.name
-        button#link_with_google Link With Google
-      unless currentUser.services.facebook.name
-        button#link_with_facebook Link With Facebook
-      button#logout Logout
+      .logout
+        unless currentUser.services.google.name
+          h5
+            a#link_with_google Link With Google
+          h5
+            a#logout Log Out
+        unless currentUser.services.facebook.name
+          h5
+            a#link_with_facebook Link With Facebook
+          h5
+            a#logout Log Out
     else
-      button#login_with_google Login with Google
-      button#login_with_facebook Login with Facebook
+      .login
+        .prompt
+          h4 Login with
+          h4 existing account
+          hr
+        .img_container
+          a#login_with_google
+            img(src="/img/gglicon.png")
+          a#login_with_facebook
+            img(src="/img/fbicon.png")

@@ -1,5 +1,6 @@
 # client/components/sidenav.coffee
 
+delay = (ms, func) -> setTimeout func, ms
 
 Template.sidenav.onCreated ->
   # We subscribe to our 'userData' publication, so we will
@@ -9,6 +10,12 @@ Template.sidenav.onCreated ->
 
 
 Template.sidenav.events
+  'click #close_sidenav': (e) ->
+    e.preventDefault()
+    $('.sidenav').css 'width', '0px'
+    $('.box').css 'marginRight', '0px'
+    window.navIsToggled = false
+    delay 500, -> window.iso.arrange()
   'click #login_with_google': (e) ->
     e.preventDefault()
     Meteor.loginWithGoogle (error, result) ->

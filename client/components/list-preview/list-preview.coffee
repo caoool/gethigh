@@ -1,3 +1,4 @@
+
 Template.list_preview.onRendered ->
   if window.iso
     window.iso.insert Template.instance().firstNode.parentNode

@@ -3,11 +3,56 @@
  */
 
 .sidenav
-  background: #323232
+  background: #3B3A36
+  right: 0
   height: 100%
   overflow-x: hidden
-  padding-top: 120px
+  padding-top: 64px
   position: fixed
   transition: 0.5s
-  width: 0
-  z-index: 2
+  width: 0px
+  white-space: nowrap
+  .close_sidenav
+    margin-top: 12px
+    margin-left: 290px
+    #close_sidenav
+      color: #e9ede5
+      transition: color .5s
+    #close_sidenav:hover
+      color: #e6ae49
+      transition: color .5s
+  .img_container
+    margin-left: 56px
+    margin-top: 48px
+    width: 200px
+  .user_info
+    padding-top: 20px
+    h4, p
+      margin-left: 56px
+      color: #e9ede5
+  .logout
+    margin-top: 40px
+    margin-left: 56px
+    a
+      color: #e9ede5
+      transition: color .5s
+    a:hover
+      color: #e6ae49
+      transition: color .5s
+  .login
+    margin-top: 48px
+    .prompt
+      margin-left: 40px
+      width: 240px
+      h4
+        color: #E9EDE5
+    .img_container
+      margin-left: 40px
+      width: 100px
+      a img
+        margin-right: 40px
+        transform: scale(1)
+        transition: all 0.5s
+      a img:hover
+        transform: scale(1.1)
+        transition: all 0.5s

@@ -1,12 +1,12 @@
 //-
   client/components/ui/header.jade
   -
-  
+
 template(name='header')
-  header.header#header
+  .header#header
     .container.header-inner
       .logo
-        img.logo-light(src='img/logo.png', alt='Universe.do', width='130px')
+        h1 Universe
       .side-menu-btn
         ul
           li
@@ -22,5 +22,5 @@ template(name='header')
             a.search-overlay-menu-btn.header-icon
               i.fa.fa-search
           li
-            a#toggle_nav.nav-bar-icon
-              span
+            a#toggle_nav.header-icon
+              i.fa.fa-bars

@@ -1,7 +1,8 @@
 # client/components/ui/header.coffee
 
 
-navIsToggled = false
+window.navIsToggled = false
+delay = (ms, func) -> setTimeout func, ms
 
 stickyHeader = ->
   scrolled = $(window).scrollTop()
@@ -17,26 +18,30 @@ stickyHeader = ->
 
 
 Template.header.onRendered ->
-  $(window).scroll ->
-    stickyHeader()
-
-  $(window).resize ->
-    stickyHeader()
+  # $(window).scroll ->
+  #   stickyHeader()
+  #
+  # $(window).resize ->
+  #   stickyHeader()
 
 
 Template.header.events
   'click #toggle_nav': (e) ->
     e.preventDefault()
-    unless navIsToggled
-      $('.sidenav').css 'width', '380px'
+    if window.navIsToggled
+      $('.sidenav').css 'width', '0px'
+      $('.box').css 'marginRight', '0px'
       # uncomment to enable push content
       # $('#main').css 'marginLeft', '250px'
-      navIsToggled = true
+      window.navIsToggled = false
     else
-      $('.sidenav').css 'width', '0'
+      $('.sidenav').css 'width', '320px'
+      $('.box').css 'marginRight', '360px'
       # uncomment to enable push content
       # $('#main').css 'marginLeft', '0'
-      navIsToggled = false
+      window.navIsToggled = true
+    delay 500, -> window.iso.arrange()
+
 
   'click .search-overlay-menu-btn': (e) ->
     e.preventDefault()
