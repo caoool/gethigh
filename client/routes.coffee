@@ -14,6 +14,9 @@ Router.configure
 Router.route '/',
   template: 'main'
 
+Router.route '/user',
+  template: 'user_page'
+
 Router.route '/test-page',
   template: 'test_page'
 

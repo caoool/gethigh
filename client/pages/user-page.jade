@@ -1,0 +1,14 @@
+template(name="user_page")
+  .user_page
+    .left_side_menu
+      .home#home.menu_item.selected(value='home')
+        a
+          h4 Home
+      .profile#profile.menu_item(value='profile')
+        a
+          h4 Profile
+      .settings#settings.menu_item(value='settings')
+        a
+          h4 Settings
+    .contents
+      +Template.dynamic template=currentTemplate
