@@ -14,7 +14,7 @@ loadmore = ->
   if isAtBottom
     newLimit = LOAD_INCREMENT + Session.get SESSION_NAMES.LISTS_LOAD_LIMIT
     Session.set SESSION_NAMES.LISTS_LOAD_LIMIT, newLimit
-
+delay = (ms, func) -> setTimeout func, ms
 ########################
 # Template Controllers #
 ########################
@@ -31,10 +31,12 @@ Template.main.onRendered ->
   # When user scroll check if load more is visible (detect bottom)
   # If so, load more data, this will give the effect of infinite scrolling
   $(window).scroll loadmore
-  if !window.iso
-    window.iso = new Isotope '.lists',
-      itemSelector: '.preview',
-      layoutMode: 'masonry'
+  delay 500,
+    ->
+      if !window.iso
+        window.iso = new Isotope '.lists',
+          itemSelector: '.preview',
+          layoutMode: 'masonry'
 
 
 Template.main.events
