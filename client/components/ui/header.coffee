@@ -31,12 +31,14 @@ Template.header.events
     if window.navIsToggled
       $('.sidenav').css 'width', '0px'
       $('.box').css 'marginRight', '0px'
+      $('.left_side_menu').css 'width', '146px'
       # uncomment to enable push content
       # $('#main').css 'marginLeft', '250px'
       window.navIsToggled = false
     else
       $('.sidenav').css 'width', '320px'
       $('.box').css 'marginRight', '360px'
+      $('.left_side_menu').css 'width', '0px'
       # uncomment to enable push content
       # $('#main').css 'marginLeft', '0'
       window.navIsToggled = true

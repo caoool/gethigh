@@ -1,0 +1,53 @@
+.list_preview_progress
+  .progress_info
+    background-color: #3B3A36
+    color: #E9EEE5
+    text-align: center
+    font-size: 24px
+    font-weight: bold
+    height: 40px
+    .percentage
+      padding-top: 8px
+  .img_container
+    overflow: hidden
+    transition: all 1s
+    .preview_img
+      transition: all 1s
+      transform: scale(1)
+  .list_info
+    padding: 4px
+    bakcground-color: #FFFFFF
+    transition: 1s
+    .flex_container
+      .list_info_text
+        width: 250px
+      display: flex
+      justify-content: space-between
+      .author_img_container
+        width: 50px
+        overflow: hidden
+        a .author_img
+          transform: scale(1)
+          transition: 1s
+      .star_black_unchecked
+        width: 20px
+        display: block
+      .star_white_unchecked
+        display: none
+  .list_items_preview
+    display: none
+  .list_info_show_items
+    background-color: #3B3A36
+    .flex_container
+      .author_img_container a .author_img
+        transform: scale(1.2)
+      .list_info_text
+        .list_title h4, .list_short_desc p
+          color: #E9EEE5
+      .followed p
+        color: #E9EEE5
+      .star_white_unchecked
+        width: 20px
+        display: block
+      .star_black_unchecked
+        display: none

@@ -1,3 +1,8 @@
 template(name="user_home")
   .user_home
-    h1 home
+    h2 lists in progress
+    hr
+    .lists
+      each lists
+        .preview
+          +list_preview_progress

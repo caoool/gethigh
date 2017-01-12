@@ -6,8 +6,6 @@ Template.user_page.events
     $('.menu_item').removeClass 'selected'
     $(e.currentTarget).addClass 'selected'
     MENU_SELECTED_PAGE.set($(e.currentTarget)[0].id)
-    console.log(MENU_SELECTED_PAGE)
-
 
 Template.user_page.helpers
   currentTemplate: ->
