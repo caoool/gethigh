@@ -1,0 +1,31 @@
+template(name="list_detail")
+  .list_detail
+    .list_title
+      h3 A Foodie's List to Chicago
+    .author_info
+      .img_container
+        img(src="/img/George Clooney.png")
+      .right_side_contents
+        .author_name
+          a Lu Cao
+        .stars
+          each stars
+            .img_container
+              img(src="/img/star-checked.png")
+    .box
+      .progress_info
+        .progress_bar
+          .finished_progress
+        .percentage 50%
+      .list_description
+        p A comprehensive list to the best food in Chicago. You’ll have to have been to all of the following establishments to call yourself a true food lover in Chicago. You might find this particularly challenging, given the sheer number of items in this list. But don’t worry, take your time. Even if you are not a Chicago local, take several trips to finish the bucket list!
+      .finished_items
+        each finished_items
+          +finished_item
+        .more_finished
+          a
+            h5 14 More Items Finished
+    .unfinished_items_container
+      each unfinished_items
+        +unfinished_item
+    

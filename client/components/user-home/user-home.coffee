@@ -9,3 +9,8 @@ Template.user_home.onRendered ->
       window.iso = new Isotope '.lists',
         itemSelector: '.preview',
         layoutMode: 'masonry'
+
+Template.user_home.events
+  'click .preview': (e) ->
+    e.preventDefault()
+    window.MENU_SELECTED_PAGE.set('list_detail')
