@@ -1,6 +1,7 @@
 .list_preview
   .img_container
     overflow: hidden
+    transition: all 1s
     .preview_img
       transition: all 1s
       transform: scale(1)
@@ -23,6 +24,27 @@
         width: 20px
         display: block
       .star_white_unchecked
+        display: none
+  .list_items_preview
+    display: none
+    overflow: scroll
+    padding: 12px
+    .list_item
+      margin: 8px 4px
+  .list_info_show_items
+    background-color: #3B3A36
+    .flex_container
+      .author_img_container a .author_img
+        transform: scale(1.2)
+      .list_info_text
+        .list_title h4, .list_short_desc p
+          color: #E9EEE5
+      .followed p
+        color: #E9EEE5
+      .star_white_unchecked
+        width: 20px
+        display: block
+      .star_black_unchecked
         display: none
 
 .list_preview:hover
