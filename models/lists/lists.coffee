@@ -30,7 +30,19 @@ Lists.schema = new SimpleSchema
     type: String
     defaultValue: 'New List'
 
-  followed_by:
+  star_by:
+    type: [String]
+    defaultValue: []
+
+  followers:
+    type: [String]
+    defaultValue: []
+
+  finishers:
+    type: [String]
+    defaultValue: []
+
+  tags:
     type: [String]
     defaultValue: []
 
@@ -61,9 +73,12 @@ Lists.attachSchema Lists.schema
 
 Lists.publicFields =
   name: 1
-  followed_by: 1
+  star_by: 1
   created_by: 1
   created_at: 1
+  followers: 1
+  finishers: 1
+  tags: 1
 
 
 Factory.define 'list', Lists,
@@ -82,4 +97,10 @@ Lists.helpers
     @created_by == Meteor.userId()
 
   isStarred: ->
-    Meteor.userId() in @followed_by
+    Meteor.userId() in @star_by
+
+  isFollowed: ->
+    Meteor.userId() in @followers
+
+  followersCount: ->
+    @followers.length

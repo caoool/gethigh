@@ -59,6 +59,9 @@ update = new ValidatedMethod
     checked:
       type: Boolean
       optional: true
+    finishers:
+      type: [String]
+      optional: true
   .validator()
 
   run: (item) ->
@@ -85,3 +88,4 @@ remove = new ValidatedMethod
   run: ({_id}) ->
     throw new Meteor.Error 'unauthorized', 'You must be logged in to delete an item!' if !@userId
     Items.remove _id
+

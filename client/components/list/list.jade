@@ -9,7 +9,9 @@ template(name='list')
     if isOwner
       .pull-right
         i.indicator.fa.fa-archive
+    .a #{finishers.length.toString} / #{followersCount}
     input#name.editable_display_list(type='text', value='#{name}', readonly='{{$not isOwner}}')
+
     each items
       +item
     .pull-right
@@ -21,8 +23,15 @@ template(name='list')
           i.fa.fa-times-circle.ft-lg
       div
         if isStarred
-          #unstar.btn.pull-right Unstar 
+          #star.btn.pull-right Unstar
             i.fa.fa-star.ft-lg
         else
-          #star.btn.pull-right Star 
+          #star.btn.pull-right Star
+            i.fa.fa-star.ft-lg
+      div
+        if isFollowed
+          #follow.btn.pull-right Unfollow 
+            i.fa.fa-star.ft-lg
+        else
+          #follow.btn.pull-right Follow 
             i.fa.fa-star.ft-lg
