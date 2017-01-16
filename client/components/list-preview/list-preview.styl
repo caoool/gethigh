@@ -1,10 +1,15 @@
 .list_preview
   .img_container
     overflow: hidden
-    transition: all 1s
     .preview_img
-      transition: all 1s
+      transition: scale 1s
       transform: scale(1)
+    .enlarge
+      position: absolute
+      right: 0
+      top: 0
+      display: none
+      width: 36px
   .list_info
     padding: 4px
     bakcground-color: #FFFFFF
@@ -70,3 +75,7 @@
       transition: all 1s
       transform: scale(1.2)
       filter: blur(1px) opacity(60%)
+    .enlarge
+      display: block
+.list_enlarged_view
+  display: none

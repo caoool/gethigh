@@ -5,6 +5,9 @@ template(name="list_preview")
         img(src="/img/steak.jpg" class="preview_img")
       else
         img(src="/img/yoga.jpg" class="preview_img")
+      .enlarge
+        a
+          img(src="/img/enlarge.png")
     .list_info
       .flex_container
         .list_info_text
@@ -29,3 +32,5 @@ template(name="list_preview")
         .list_item
           input(type="checkbox")
           span Green Door Tavern
+  .list_enlarged_view
+    h2 hahhah big one!

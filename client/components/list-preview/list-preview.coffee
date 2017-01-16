@@ -1,3 +1,4 @@
+delay = (ms, func) -> setTimeout func, ms
 Template.list.onCreated ->
   @subscribe 'items.inList', Template.instance().data['_id']
 
@@ -17,6 +18,13 @@ Template.list_preview.events
       $(e.currentTarget.parentNode.firstChild).css 'display', 'block'
       $(e.currentTarget.parentNode.lastChild).css 'display', 'none'
       $(e.currentTarget).removeClass 'list_info_show_items'
+
+  'click .enlarge': (e) ->
+    e.preventDefault()
+    $(e.currentTarget.parentNode.parentNode.parentNode).toggleClass 'large'
+    $(e.currentTarget.parentNode.parentNode).css 'display', 'none'
+    $(e.currentTarget.parentNode.parentNode.parentNode.lastChild).css 'display', 'block'
+    window.iso.arrange()
 
 Template.list_preview.helpers
   randomImg: ->
