@@ -8,8 +8,10 @@
       margin-right: 8px
     .item_container
       background-color: #D4E8FF
+      transition: background-color 1s
       padding: 4px
       .title_row
+        width: 712px
         display: flex
         justify-content: space-between
         .icons
@@ -19,3 +21,13 @@
             margin-right: 8px
       .item_description
         margin-top: 12px
+
+    .hide_description
+      background-color: #FF9D68
+      transition: background-color 1s
+      .item_description
+        display: none
+        text-decoration: line-through
+      .title_row
+        .item_title
+          text-decoration: line-through
