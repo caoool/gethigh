@@ -21,7 +21,8 @@ template(name='sidenav')
         i.fa.fa-times.fa-2x.fa-white
     if currentUser
       .img_container
-        img(src="/img/George Clooney.png")
+        a(href="/user")
+          img(src="/img/George Clooney.png")
       .user_info
         h4 #{currentUser.profile.name}
         ul
