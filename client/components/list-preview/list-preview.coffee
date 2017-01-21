@@ -19,11 +19,14 @@ Template.list_preview.events
       $(e.currentTarget.parentNode.lastChild).css 'display', 'none'
       $(e.currentTarget).removeClass 'list_info_show_items'
 
-  'click .enlarge': (e) ->
+  'click .list_preview .img_container': (e) ->
     e.preventDefault()
-    $(e.currentTarget.parentNode.parentNode.parentNode).toggleClass 'large'
-    $(e.currentTarget.parentNode.parentNode).css 'display', 'none'
-    $(e.currentTarget.parentNode.parentNode.parentNode.lastChild).css 'display', 'block'
+    $('.preview').removeClass 'large'
+    $('.list_enlarged_view').css 'display', 'none'
+    $('.list_preview').css 'display', 'block'
+    $(e.currentTarget.parentNode.parentNode).toggleClass 'large'
+    $(e.currentTarget.parentNode).css 'display', 'none'
+    $(e.currentTarget.parentNode.parentNode.lastChild).css 'display', 'block'
     window.iso.arrange()
 
 Template.list_preview.helpers

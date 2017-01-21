@@ -6,3 +6,7 @@ Template.list_preview_enlarged.events
     $(previewNode.lastChild).css 'display', 'none'
     $(previewNode.firstChild).css 'display', 'block'
     window.iso.arrange()
+
+Template.list_preview_enlarged.helpers
+  listItems: ->
+    [1, 2, 3, 4, 5]

@@ -1,6 +1,6 @@
 template(name="list_preview_enlarged")
   .list_preview_enlarged
-    .header
+    .preview_header
       .list_title
         h4 A Foodie's List to Chicago
       .right_side_contents
@@ -12,6 +12,15 @@ template(name="list_preview_enlarged")
         .close_button
           a#close_enlarged_preview
             i.fa.fa-times.fa-2x.fa-white
-    .content_container
-      .list_description
-      .list_items
+    .list_description
+      p
+        | A comprehensive list to the best food in Chicago.
+        | You’ll have to have been to all of the following
+        | establishments to call yourself a true food lover in Chicago.
+        | You might find this particularly challenging, given the sheer
+        | number of items in this list. But don’t worry, take your time.
+        | Even if you are not a Chicago local, take several trips to
+        | finish the bucket list!.
+    .list_items
+      each listItems
+        +unfinished_item
